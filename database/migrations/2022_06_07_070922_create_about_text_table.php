@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('language_id')->references('id')->on('languages');
 
             $table->unsignedBigInteger('about_id');
-            $table->foreign('about_id')->references('id')->on('about');
+            $table->foreign('about_id')->references('id')->on('abouts');
 
             $table->text('text');
 

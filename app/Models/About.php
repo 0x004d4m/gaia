@@ -23,7 +23,8 @@ class About extends Model
     }
 
     public function getImageAttribute($value){
-        return url('public/'.$value);
+        return url($value);
+        // return url('public/'.$value);
     }
 
     public function setImageAttribute($value)

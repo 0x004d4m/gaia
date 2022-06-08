@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about_text', function (Blueprint $table) {
+        Schema::create('about_texts', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
 
-            $table->unsignedBigInteger('about_id');
+            $table->unsignedBigInteger('about_id')->default(1);
             $table->foreign('about_id')->references('id')->on('abouts');
 
             $table->text('text');

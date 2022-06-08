@@ -8,10 +8,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 class AboutController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    // use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    // use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    // use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     public function setup()
     {
@@ -34,7 +32,7 @@ class AboutController extends CrudController
             'type' => 'image'
         ]);
 
-        $this->crud->addButtonFromView('line', 'is_blocked', 'showAboutText');
+        $this->crud->addButtonFromView('line', 'show_about_text', 'showAboutText');
     }
 
     protected function setupUpdateOperation()

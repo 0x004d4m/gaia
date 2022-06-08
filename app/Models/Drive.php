@@ -19,11 +19,11 @@ class Drive extends Model
 
     public function locationFrom()
     {
-        return $this->belongsTo(Location::class,'id','from');
+        return $this->belongsTo(Location::class,'from','id');
     }
 
     public function locationTo()
     {
-        return $this->belongsTo(Location::class,'id','to');
+        return $this->belongsTo(Location::class,'to','id');
     }
 }

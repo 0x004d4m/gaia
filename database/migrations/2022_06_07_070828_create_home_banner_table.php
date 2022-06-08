@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
 
-            $table->unsignedBigInteger('home_id');
+            $table->unsignedBigInteger('home_id')->default(1);
             $table->foreign('home_id')->references('id')->on('home');
 
             $table->text('text');

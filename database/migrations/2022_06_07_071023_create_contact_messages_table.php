@@ -13,10 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gallery', function (Blueprint $table) {
+        Schema::create('contact_messages', function (Blueprint $table) {
             $table->id();
 
-            $table->text('image');
+            $table->text('first_name');
+            $table->text('last_name');
+            $table->text('email');
+            $table->text('phone');
+            $table->text('subject');
+            $table->text('message');
+
+            $table->unsignedBigInteger('language_id');
+            $table->foreign('language_id')->references('id')->on('languages');
 
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gallery');
+        Schema::dropIfExists('contact_messages');
     }
 };

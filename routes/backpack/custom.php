@@ -17,4 +17,14 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
     Route::crud('About', 'AboutController');
+    Route::crud('AboutText', 'AboutTextController');
+    Route::crud('ContactMessages', 'ContactMessagesController');
+    Route::crud('Drives', 'DriveController');
+    Route::crud('Gallery', 'GalleryController');
+    Route::crud('Languages', 'LanguageController');
+    Route::crud('Locations', 'LocationController');
+    Route::group(['prefix' => 'About/{about_id}'], function()
+    {
+        Route::resource('AboutText', 'AboutAboutTextController');
+    });
 });

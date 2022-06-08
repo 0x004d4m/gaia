@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\AboutText\CreateRequest;
+use App\Http\Requests\Admin\AboutText\UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class AboutTextController extends CrudController
@@ -26,55 +28,54 @@ class AboutTextController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->setFromDb();
-        // language_id
-        // about_id
-        // text
+
+        $this->crud->setColumnDetails('language_id',[
+            'label' => "Language",
+            'type' => "select",
+            'name' => 'language_id',
+            'entity' => 'language',
+            'attribute' => "language",
+            'model' => 'App\Models\Language'
+        ]);
+
         $this->crud->setColumnDetails('text',[
             'label' => "Text",
             'name' => "text",
             'type' => 'text'
         ]);
-        $this->crud->setColumnDetails('station_id',[
-            'label' => "Station",
-            'type' => "select",
-            'name' => 'station_id',
-            'entity' => 'station',
-            'attribute' => "name_en",
-            'model' => 'App\Models\Station'
-        ]);
-        $this->crud->addField([
-            'label' => "Station",
-            'type' => "relationship",
-            'name' => 'station_id',
-            'entity' => 'station',
-            'attribute' => "name_en",
-            'model' => 'App\Models\Station',
-            'allows_null' => true
-        ]);
+
+        $this->crud->removeColumns(['about_id']);
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(CreateRequest::class);
 
-        $this->crud->addField(['name' => 'image', 'type' => 'image']);
+        $this->crud->addField([
+            'label' => "Language",
+            'type' => "relationship",
+            'name' => 'language_id',
+            'entity' => 'language',
+            'attribute' => "language",
+            'model' => 'App\Models\Language'
+        ]);
+
+        $this->crud->addField(['name' => 'text', 'type' => 'text']);
     }
 
     protected function setupUpdateOperation()
     {
         $this->crud->setValidation(UpdateRequest::class);
 
-        $this->crud->addField(['name' => 'image', 'type' => 'image']);
-    }
-
-    protected function setupShowOperation()
-    {
-        $this->crud->setFromDb();
-
-        $this->crud->setColumnDetails('image',[
-            'label' => "Image",
-            'name' => "image",
-            'type' => 'image'
+        $this->crud->addField([
+            'label' => "Language",
+            'type' => "relationship",
+            'name' => 'language_id',
+            'entity' => 'language',
+            'attribute' => "language",
+            'model' => 'App\Models\Language'
         ]);
+
+        $this->crud->addField(['name' => 'text', 'type' => 'text']);
     }
 }

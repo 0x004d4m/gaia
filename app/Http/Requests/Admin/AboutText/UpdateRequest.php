@@ -8,7 +8,7 @@ class UpdateRequest extends FormRequest
 {
     public function authorize()
     {
-        return backpack_auth()->check() && backpack_user()->can('Manage About');
+        return backpack_auth()->check() && backpack_user()->can('Manage Home');
     }
 
     public function rules()

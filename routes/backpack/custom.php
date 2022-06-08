@@ -16,15 +16,43 @@ Route::group([
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
+    // Home Routes
+    Route::crud('Languages', 'LanguageController');
+
+    Route::crud('Locations', 'LocationController');
+
+    Route::crud('Home', 'HomeController');
+    Route::crud('HomeText', 'HomeTextController');
+    Route::crud('HomeBanner', 'HomeBannerController');
+
     Route::crud('About', 'AboutController');
     Route::crud('AboutText', 'AboutTextController');
-    Route::crud('ContactMessages', 'ContactMessagesController');
-    Route::crud('Drives', 'DriveController');
+
+    Route::crud('ContactInfo', 'ContactInfoController');
+
     Route::crud('Gallery', 'GalleryController');
-    Route::crud('Languages', 'LanguageController');
-    Route::crud('Locations', 'LocationController');
-    Route::group(['prefix' => 'About/{about_id}'], function()
-    {
-        Route::resource('AboutText', 'AboutAboutTextController');
-    });
+
+    // Bookings Routes
+    Route::crud('BookedDrive', 'BookedDriveController');
+    Route::crud('BookedHotelRoom', 'BookedHotelRoomController');
+    Route::crud('BookedProgram', 'BookedProgramController');
+
+    // Hotels Routes
+    Route::crud('Hotel', 'HotelController');
+    Route::crud('HotelImage', 'HotelImageController');
+    Route::crud('HotelText', 'HotelTextController');
+
+    Route::crud('HotelRoom', 'HotelRoomController');
+    Route::crud('HotelRoomText', 'HotelRoomTextController');
+
+    // Programs Routes
+    Route::crud('Program', 'ProgramController');
+    Route::crud('ProgramImage', 'ProgramImageController');
+    Route::crud('ProgramText', 'ProgramTextController');
+
+    // Contact Messages Routes
+    Route::crud('ContactMessages', 'ContactMessagesController');
+
+    // Drives Routes
+    Route::crud('Drives', 'DriveController');
 });

@@ -15,7 +15,7 @@ class LanguageController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage Languages'))
+        if (!backpack_user()->can('Manage Home'))
         {
             abort(403, 'Access denied');
         }

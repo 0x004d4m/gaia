@@ -16,7 +16,7 @@ class AboutTextController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage About'))
+        if (!backpack_user()->can('Manage Home'))
         {
             abort(403, 'Access denied');
         }

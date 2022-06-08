@@ -15,7 +15,7 @@ class GalleryController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage Gallery'))
+        if (!backpack_user()->can('Manage Home'))
         {
             abort(403, 'Access denied');
         }

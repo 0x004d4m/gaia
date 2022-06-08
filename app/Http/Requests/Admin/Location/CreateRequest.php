@@ -8,7 +8,7 @@ class CreateRequest extends FormRequest
 {
     public function authorize()
     {
-        return backpack_auth()->check() && backpack_user()->can('Manage Locations');
+        return backpack_auth()->check() && backpack_user()->can('Manage Home');
     }
 
     public function rules()

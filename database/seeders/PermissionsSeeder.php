@@ -10,13 +10,13 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         DB::table('permissions')->insert([
-            ["id"=>1,"name"=>"Manage Authentication","guard_name"=>"web"],
-            ["id"=>2,"name"=>"Manage About","guard_name"=>"web"],
-            ["id"=>3,"name"=>"Manage Contact Messages","guard_name"=>"web"],
-            ["id"=>4,"name"=>"Manage Languages","guard_name"=>"web"],
-            ["id"=>5,"name"=>"Manage Locations","guard_name"=>"web"],
+            ["id"=>1,"name"=>"Manage Home","guard_name"=>"web"],
+            ["id"=>2,"name"=>"Manage Bookings","guard_name"=>"web"],
+            ["id"=>3,"name"=>"Manage Hotels","guard_name"=>"web"],
+            ["id"=>4,"name"=>"Manage Programs","guard_name"=>"web"],
+            ["id"=>5,"name"=>"Contact Messages","guard_name"=>"web"],
             ["id"=>6,"name"=>"Manage Drives","guard_name"=>"web"],
-            ["id"=>7,"name"=>"Manage Gallery","guard_name"=>"web"],
+            ["id"=>7,"name"=>"Manage Authentication","guard_name"=>"web"],
         ]);
 
         DB::table('roles')->insert([

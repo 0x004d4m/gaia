@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\AboutText;
+namespace App\Http\Requests\Admin\Home;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,8 +14,8 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'language_id' => 'required',
-            'text' => 'required',
+            'image' => 'required',
+            'video_url' => 'required',
         ];
     }
 

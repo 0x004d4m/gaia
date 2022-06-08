@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_text', function (Blueprint $table) {
+        Schema::create('about_texts', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
 
-            $table->unsignedBigInteger('home_id')->default(1);
-            $table->foreign('home_id')->references('id')->on('home');
+            $table->unsignedBigInteger('about_id')->default(1);
+            $table->foreign('about_id')->references('id')->on('abouts');
 
             $table->text('text');
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_text');
+        Schema::dropIfExists('about_texts');
     }
 };

@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_banner', function (Blueprint $table) {
+        Schema::create('hotel_texts', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
 
-            $table->unsignedBigInteger('home_id')->default(1);
-            $table->foreign('home_id')->references('id')->on('home');
+            $table->unsignedBigInteger('hotel_id');
+            $table->foreign('hotel_id')->references('id')->on('hotels');
 
+            $table->text('name');
             $table->text('text');
 
             $table->timestamps();
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_banner');
+        Schema::dropIfExists('hotel_texts');
     }
 };

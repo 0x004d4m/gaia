@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\About\UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\Widget;
 
 class AboutController extends CrudController
 {
@@ -13,7 +14,7 @@ class AboutController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage About'))
+        if (!backpack_user()->can('Manage Home'))
         {
             abort(403, 'Access denied');
         }
@@ -31,8 +32,6 @@ class AboutController extends CrudController
             'name' => "image",
             'type' => 'image'
         ]);
-
-        $this->crud->addButtonFromView('line', 'show_about_text', 'showAboutText');
     }
 
     protected function setupUpdateOperation()
@@ -40,5 +39,32 @@ class AboutController extends CrudController
         $this->crud->setValidation(UpdateRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->setFromDb();
+
+        $this->crud->setColumnDetails('image',[
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image'
+        ]);
+
+        Widget::add([
+            'type'           => 'relation_table',
+            'name'           => 'texts',
+            'label'          => 'About Texts',
+            'backpack_crud'  => 'AboutText','columns' => [
+                [
+                    'label' => 'text',
+                    'name'  => 'text',
+                ],
+                [
+                    'label' => 'language',
+                    'name'  => 'language.language',
+                ],
+            ],
+        ])->to('after_content');
     }
 }

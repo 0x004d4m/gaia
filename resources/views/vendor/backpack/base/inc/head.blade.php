@@ -4,7 +4,7 @@
     @if (config('backpack.base.meta_robots_content'))<meta name="robots" content="{{ config('backpack.base.meta_robots_content', 'noindex, nofollow') }}"> @endif
 
     <meta name="csrf-token" content="{{ csrf_token() }}" /> {{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
-    <title>WOW Admin Panel</title>
+    <title>Gaia Admin Panel</title>
 
     @yield('before_styles')
     @stack('before_styles')

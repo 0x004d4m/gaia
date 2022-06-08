@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('programs_images', function (Blueprint $table) {
+        Schema::create('home_banners', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('program_id');
-            $table->foreign('program_id')->references('id')->on('programs');
+            $table->unsignedBigInteger('language_id');
+            $table->foreign('language_id')->references('id')->on('languages');
 
-            $table->text('image');
+            $table->unsignedBigInteger('home_id')->default(1);
+            $table->foreign('home_id')->references('id')->on('homes');
+
+            $table->text('text');
 
             $table->timestamps();
             $table->softDeletes();
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs_images');
+        Schema::dropIfExists('home_banners');
     }
 };

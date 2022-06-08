@@ -2,10 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-class ProgramTextController extends Controller
+class ProgramTextController extends CrudController
 {
-    //
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+
+    public function setup()
+    {
+        if (!backpack_user()->can('Manage Programs'))
+        {
+            abort(403, 'Access denied');
+        }
+        $this->crud->setModel("App\Models\Program");
+        $this->crud->setRoute("admin/ProgramText");
+        $this->crud->setEntityNameStrings('Program Text', 'Program Texts');
+    }
 }

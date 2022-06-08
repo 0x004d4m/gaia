@@ -15,7 +15,7 @@ class LocationController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage Locations'))
+        if (!backpack_user()->can('Manage Home'))
         {
             abort(403, 'Access denied');
         }

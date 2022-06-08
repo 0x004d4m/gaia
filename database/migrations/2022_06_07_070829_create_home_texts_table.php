@@ -13,13 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home', function (Blueprint $table) {
+        Schema::create('home_texts', function (Blueprint $table) {
             $table->id();
 
-            $table->text('image');
-            $table->text('video_url');
+            $table->unsignedBigInteger('language_id');
+            $table->foreign('language_id')->references('id')->on('languages');
+
+            $table->unsignedBigInteger('home_id')->default(1);
+            $table->foreign('home_id')->references('id')->on('homes');
+
+            $table->text('text');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home');
+        Schema::dropIfExists('home_texts');
     }
 };

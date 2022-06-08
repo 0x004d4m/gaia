@@ -12,7 +12,7 @@ class ContactMessagesController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage Contact Messages'))
+        if (!backpack_user()->can('Contact Messages'))
         {
             abort(403, 'Access denied');
         }

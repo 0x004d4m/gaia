@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\AboutText\CreateRequest;
-use App\Http\Requests\Admin\AboutText\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class AboutTextController extends CrudController
@@ -49,7 +48,7 @@ class AboutTextController extends CrudController
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(CreateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField([
             'label' => "Language",
@@ -65,7 +64,7 @@ class AboutTextController extends CrudController
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField([
             'label' => "Language",

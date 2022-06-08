@@ -25,6 +25,11 @@ class BookedHotelRoom extends Model
         'nationality'
     ];
 
+    public function setPriceAttribute($value)
+    {
+        $this->attributes['price'] = ($value!=-1)?$value:Drive::where('id',$this->attributes['drive_id'])->first()->price;
+    }
+
     public function hotelRoom()
     {
         return $this->belongsTo(HotelRoom::class);

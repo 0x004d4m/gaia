@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\About\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
 
@@ -36,7 +36,7 @@ class AboutController extends CrudController
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
     }

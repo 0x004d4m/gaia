@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\Drive\CreateRequest;
-use App\Http\Requests\Admin\Drive\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class DriveController extends CrudController
@@ -55,7 +54,7 @@ class DriveController extends CrudController
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(CreateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField([
             'label' => "From",
@@ -80,7 +79,7 @@ class DriveController extends CrudController
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField([
             'label' => "From",

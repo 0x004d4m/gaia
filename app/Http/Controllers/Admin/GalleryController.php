@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\Gallery\CreateRequest;
-use App\Http\Requests\Admin\Gallery\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class GalleryController extends CrudController
@@ -37,14 +36,14 @@ class GalleryController extends CrudController
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(CreateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
     }
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
     }

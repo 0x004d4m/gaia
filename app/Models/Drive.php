@@ -17,6 +17,14 @@ class Drive extends Model
         'price',
     ];
 
+    protected $appends = [
+        'full_trip'
+    ];
+
+    public function getFullTripAttribute($value) {
+        return 'From '.$this->locationFrom->name.' To '.$this->locationTo->name;
+    }
+
     public function locationFrom()
     {
         return $this->belongsTo(Location::class,'from','id');

@@ -5,18 +5,10 @@
         <a class="nav-link nav-dropdown-toggle" href="#">Manage Home</a>
         <ul class="nav-dropdown-items">
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('Languages') }}">Languages</a></li>
-
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('Locations') }}">Locations</a></li>
-
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('Home') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ backpack_url('HomeText') }}">HomeText</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ backpack_url('HomeBanner') }}">HomeBanner</a></li>
-
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('About') }}">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ backpack_url('AboutText') }}">AboutText</a></li>
-
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('ContactInfo') }}">ContactInfo</a></li>
-
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('Gallery') }}">Gallery</a></li>
         </ul>
     </li>
@@ -58,7 +50,7 @@
     </li>
 @endif
 
-@if(backpack_user()->can('Manage Messages'))
+@if(backpack_user()->can('Contact Messages'))
     <li class="nav-item"><a class="nav-link" href="{{ backpack_url('ContactMessages') }}">Contact Messages</a></li>
 @endif
 

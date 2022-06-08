@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\Location\CreateRequest;
-use App\Http\Requests\Admin\Location\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class LocationController extends CrudController
@@ -37,14 +36,14 @@ class LocationController extends CrudController
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(CreateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'name', 'type' => 'text']);
     }
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'name', 'type' => 'text']);
     }

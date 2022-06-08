@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\Language\CreateRequest;
-use App\Http\Requests\Admin\Language\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class LanguageController extends CrudController
@@ -43,7 +42,7 @@ class LanguageController extends CrudController
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(CreateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'language', 'type' => 'text']);
         $this->crud->addField(['name' => 'direction', 'type' => 'enum']);
@@ -51,7 +50,7 @@ class LanguageController extends CrudController
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'language', 'type' => 'text']);
         $this->crud->addField(['name' => 'direction', 'type' => 'enum']);

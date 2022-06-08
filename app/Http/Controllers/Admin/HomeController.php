@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Admin\Home\UpdateRequest;
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
 
@@ -42,7 +42,7 @@ class HomeController extends CrudController
 
     protected function setupUpdateOperation()
     {
-        $this->crud->setValidation(UpdateRequest::class);
+        $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
         $this->crud->addField(['name' => 'video_url', 'type' => 'text']);
@@ -68,6 +68,22 @@ class HomeController extends CrudController
             'type'           => 'relation_table',
             'name'           => 'texts',
             'label'          => 'Home Texts',
+            'backpack_crud'  => 'HomeText','columns' => [
+                [
+                    'label' => 'text',
+                    'name'  => 'text',
+                ],
+                [
+                    'label' => 'language',
+                    'name'  => 'language.language',
+                ],
+            ],
+        ])->to('after_content');
+
+        Widget::add([
+            'type'           => 'relation_table',
+            'name'           => 'banners',
+            'label'          => 'Home Banners',
             'backpack_crud'  => 'HomeText','columns' => [
                 [
                     'label' => 'text',

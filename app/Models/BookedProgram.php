@@ -25,6 +25,11 @@ class BookedProgram extends Model
         'nationality'
     ];
 
+    public function setPriceAttribute($value)
+    {
+        $this->attributes['price'] = ($value!=-1)?$value:Program::where('id',$this->attributes['program_id'])->first()->price;
+    }
+
     public function program()
     {
         return $this->belongsTo(Program::class);

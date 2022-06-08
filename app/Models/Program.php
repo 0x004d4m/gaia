@@ -18,6 +18,14 @@ class Program extends Model
         'price'
     ];
 
+    protected $appends = [
+        'name'
+    ];
+
+    public function getNameAttribute($value) {
+        return ProgramText::where('program_id',$this->attributes['id'])->where('language_id',1)->first()->name ?? $this->attributes['id'];
+    }
+
     public function texts()
     {
         return $this->hasMany(ProgramText::class);

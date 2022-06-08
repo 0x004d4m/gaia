@@ -16,8 +16,31 @@ class Hotel extends Model
         'url'
     ];
 
+    protected $appends = [
+        'name'
+    ];
+
+    public function getNameAttribute($value) {
+        return HotelText::where('hotel_id',$this->attributes['id'])->where('language_id',1)->first()->name ?? $this->attributes['id'];
+    }
+
     public function location()
     {
         return $this->belongsTo(Location::class);
+    }
+
+    public function texts()
+    {
+        return $this->hasMany(HotelText::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(HotelImage::class);
+    }
+
+    public function rooms()
+    {
+        return $this->hasMany(HotelRoom::class);
     }
 }

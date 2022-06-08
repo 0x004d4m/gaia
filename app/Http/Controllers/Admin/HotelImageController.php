@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class HotelImageController extends CrudController
@@ -21,5 +22,55 @@ class HotelImageController extends CrudController
         $this->crud->setModel("App\Models\HotelImage");
         $this->crud->setRoute("admin/HotelImage");
         $this->crud->setEntityNameStrings('Hotel Image', 'Hotel Images');
+    }
+
+    protected function setupListOperation()
+    {
+        $this->crud->setFromDb();
+
+        $this->crud->setColumnDetails('image',[
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image'
+        ]);
+
+        $this->crud->removeColumns(['hotel_id']);
+    }
+
+    protected function setupCreateOperation()
+    {
+        $this->crud->setValidation(GeneralRequest::class);
+
+        $this->crud->addField(['name' => 'image', 'type' => 'image']);
+
+        $this->crud->addField([
+            'label' => "Hotel",
+            'type' => "relationship",
+            'name' => 'hotel_id',
+            'entity' => 'hotel',
+            'attribute' => "name",
+            'model' => 'App\Models\Hotel',
+            'default' => $_GET['hotel_id'] ?? null
+        ]);
+    }
+
+    protected function setupUpdateOperation()
+    {
+        $this->crud->setValidation(GeneralRequest::class);
+
+        $this->crud->addField(['name' => 'image', 'type' => 'image']);
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->setFromDb();
+
+        $this->crud->setColumnDetails('image',[
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image'
+        ]);
+
+        $this->crud->removeColumns(['hotel_id']);
     }
 }

@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('contact_infos', function (Blueprint $table) {
             $table->id();
 
-            $table->text('facebook');
-            $table->text('snapchat');
-            $table->text('instagram');
             $table->text('phone1');
             $table->text('phone2');
             $table->text('email');
             $table->text('POBox');
+            $table->text('facebook');
+            $table->text('snapchat');
+            $table->text('instagram');
             $table->text('location');
 
             $table->timestamps();

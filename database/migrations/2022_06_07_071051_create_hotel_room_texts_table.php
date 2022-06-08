@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('hotel_room_texts', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedBigInteger('language_id');
+            $table->foreign('language_id')->references('id')->on('languages');
+
             $table->unsignedBigInteger('hotel_room_id');
             $table->foreign('hotel_room_id')->references('id')->on('hotel_rooms');
 

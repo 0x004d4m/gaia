@@ -46,7 +46,7 @@ class ContactMessagesController extends CrudController
         $this->crud->setColumnDetails('phone',[
             'label' => "Phone",
             'name' => "phone",
-            'type' => 'text'
+            'type' => 'phone'
         ]);
 
         $this->crud->setColumnDetails('subject',[
@@ -97,7 +97,7 @@ class ContactMessagesController extends CrudController
         $this->crud->setColumnDetails('phone',[
             'label' => "Phone",
             'name' => "phone",
-            'type' => 'text'
+            'type' => 'phone'
         ]);
 
         $this->crud->setColumnDetails('subject',[

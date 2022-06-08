@@ -77,4 +77,26 @@ class AboutTextController extends CrudController
 
         $this->crud->addField(['name' => 'text', 'type' => 'text']);
     }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->setFromDb();
+
+        $this->crud->setColumnDetails('language_id',[
+            'label' => "Language",
+            'type' => "select",
+            'name' => 'language_id',
+            'entity' => 'language',
+            'attribute' => "language",
+            'model' => 'App\Models\Language'
+        ]);
+
+        $this->crud->setColumnDetails('text',[
+            'label' => "Text",
+            'name' => "text",
+            'type' => 'text'
+        ]);
+
+        $this->crud->removeColumns(['about_id']);
+    }
 }

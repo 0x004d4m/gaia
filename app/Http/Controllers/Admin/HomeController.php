@@ -36,7 +36,7 @@ class HomeController extends CrudController
         $this->crud->setColumnDetails('video_url',[
             'label' => "Video URL",
             'name' => "video_url",
-            'type' => 'text'
+            'type' => 'link'
         ]);
     }
 
@@ -61,7 +61,7 @@ class HomeController extends CrudController
         $this->crud->setColumnDetails('video_url',[
             'label' => "Video URL",
             'name' => "video_url",
-            'type' => 'text'
+            'type' => 'link'
         ]);
 
         Widget::add([
@@ -84,7 +84,7 @@ class HomeController extends CrudController
             'type'           => 'relation_table',
             'name'           => 'banners',
             'label'          => 'Home Banners',
-            'backpack_crud'  => 'HomeText','columns' => [
+            'backpack_crud'  => 'HomeBanner','columns' => [
                 [
                     'label' => 'text',
                     'name'  => 'text',

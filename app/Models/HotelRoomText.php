@@ -12,9 +12,15 @@ class HotelRoomText extends Model
     use HasFactory, SoftDeletes, CrudTrait;
 
     protected $fillable = [
+        'language_id',
         'hotel_room_id',
-        'price'
+        'name'
     ];
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 
     public function hotelRoom()
     {

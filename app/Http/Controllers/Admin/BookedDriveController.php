@@ -102,7 +102,7 @@ class BookedDriveController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->addField(['name' => 'price', 'type' => 'text']);
+        $this->crud->addField(['name' => 'price', 'type' => 'text','hint'=>'put -1 to get drive original price']);
         $this->crud->addField(['name' => 'first_name', 'type' => 'text']);
         $this->crud->addField(['name' => 'last_name', 'type' => 'text']);
         $this->crud->addField(['name' => 'date_of_birth', 'type' => 'text']);
@@ -117,5 +117,4 @@ class BookedDriveController extends CrudController
     {
         $this->crud->setFromDb();
     }
-
 }

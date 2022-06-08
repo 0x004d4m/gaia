@@ -33,13 +33,13 @@ class MainSeeder extends Seeder
         DB::table('contact_infos')->insert([
             [
                 "id"=>1,
-                "facebook"=>"https://web.facebook.com/GaiaToursJordan/?_rdc=1&_rdr",
-                "snapchat"=>"-",
-                "instagram"=>"https://www.instagram.com/gaia_tours/",
                 "phone1"=>"+962795012069",
                 "phone2"=>"+962795675754",
                 "email"=>"info@gaia-toursjo.com",
                 "POBox"=>"430054",
+                "facebook"=>"https://web.facebook.com/GaiaToursJordan/?_rdc=1&_rdr",
+                "snapchat"=>"-",
+                "instagram"=>"https://www.instagram.com/gaia_tours/",
                 "location"=>"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d16099.468810865834!2d35.87031172005533!3d31.974556210827107!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x91ec9ec47874b0dd!2sGaia%20Tours!5e0!3m2!1sen!2sjo!4v1630101588477!5m2!1sen!2sjo",
             ],
         ]);

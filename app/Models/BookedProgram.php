@@ -17,6 +17,8 @@ class BookedProgram extends Model
         'price',
         'first_name',
         'last_name',
+        'phone',
+        'email',
         'date_of_birth',
         'number_of_people',
         'passport_number',

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-class DriveController extends CrudController
+class TransportationController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -14,13 +14,13 @@ class DriveController extends CrudController
 
     public function setup()
     {
-        if (!backpack_user()->can('Manage Drives'))
+        if (!backpack_user()->can('Manage Transportations'))
         {
             abort(403, 'Access denied');
         }
-        $this->crud->setModel("App\Models\Drive");
-        $this->crud->setRoute("admin/Drives");
-        $this->crud->setEntityNameStrings('Drive', 'Drives');
+        $this->crud->setModel("App\Models\Transportation");
+        $this->crud->setRoute("admin/Transportations");
+        $this->crud->setEntityNameStrings('Transportation', 'Transportations');
     }
 
     protected function setupListOperation()

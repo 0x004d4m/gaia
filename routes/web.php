@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\Website\{
+    AboutController,
+    ContactController,
+    GalleryController,
+    HomeController,
+    HotelsController,
+    ProgramsController,
+    TransportationController
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +23,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/Home');
 });
+
+Route::get('/Home', [HomeController::class, 'index']);
+Route::get('/About', [AboutController::class, 'index']);
+Route::get('/Gallery', [GalleryController::class, 'index']);
+Route::get('/Programs', [ProgramsController::class, 'index']);
+Route::get('/Hotels', [HotelsController::class, 'index']);
+Route::get('/Transportation', [TransportationController::class, 'index']);
+Route::get('/Contact', [ContactController::class, 'index']);

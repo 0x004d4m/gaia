@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('booked_drives', function (Blueprint $table) {
+        Schema::create('booked_transportations', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('drive_id');
-            $table->foreign('drive_id')->references('id')->on('drives');
+            $table->unsignedBigInteger('transportation_id');
+            $table->foreign('transportation_id')->references('id')->on('transportations');
 
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
@@ -26,6 +26,8 @@ return new class extends Migration
 
             $table->text('first_name');
             $table->text('last_name');
+            $table->text('phone');
+            $table->text('email');
             $table->text('date_of_birth');
             $table->text('number_of_people');
             $table->text('passport_number');
@@ -45,6 +47,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('booked_drives');
+        Schema::dropIfExists('booked_transportations');
     }
 };

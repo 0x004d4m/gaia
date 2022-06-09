@@ -1,0 +1,13 @@
+<script src="{{asset('websiteTemplate/js/jquery.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/popper.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/jquery.easing.1.3.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/jquery.stellar.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/jquery.animateNumber.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/bootstrap-datepicker.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/scrollax.min.js')}}"></script>
+<script src="{{asset('websiteTemplate/js/main.js')}}"></script>

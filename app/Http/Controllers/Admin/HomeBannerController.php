@@ -28,19 +28,10 @@ class HomeBannerController extends CrudController
     {
         $this->crud->setFromDb();
 
-        $this->crud->setColumnDetails('language_id',[
-            'label' => "Language",
-            'type' => "select",
-            'name' => 'language_id',
-            'entity' => 'language',
-            'attribute' => "language",
-            'model' => 'App\Models\Language'
-        ]);
-
-        $this->crud->setColumnDetails('text',[
-            'label' => "Text",
-            'name' => "text",
-            'type' => 'text'
+        $this->crud->setColumnDetails('image',[
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image'
         ]);
 
         $this->crud->removeColumns(['home_id']);
@@ -50,51 +41,24 @@ class HomeBannerController extends CrudController
     {
         $this->crud->setValidation(GeneralRequest::class);
 
-        $this->crud->addField([
-            'label' => "Language",
-            'type' => "relationship",
-            'name' => 'language_id',
-            'entity' => 'language',
-            'attribute' => "language",
-            'model' => 'App\Models\Language'
-        ]);
-
-        $this->crud->addField(['name' => 'text', 'type' => 'text']);
+        $this->crud->addField(['name' => 'image', 'type' => 'image']);
     }
 
     protected function setupUpdateOperation()
     {
         $this->crud->setValidation(GeneralRequest::class);
 
-        $this->crud->addField([
-            'label' => "Language",
-            'type' => "relationship",
-            'name' => 'language_id',
-            'entity' => 'language',
-            'attribute' => "language",
-            'model' => 'App\Models\Language'
-        ]);
-
-        $this->crud->addField(['name' => 'text', 'type' => 'text']);
+        $this->crud->addField(['name' => 'image', 'type' => 'image']);
     }
 
     protected function setupShowOperation()
     {
         $this->crud->setFromDb();
 
-        $this->crud->setColumnDetails('language_id',[
-            'label' => "Language",
-            'type' => "select",
-            'name' => 'language_id',
-            'entity' => 'language',
-            'attribute' => "language",
-            'model' => 'App\Models\Language'
-        ]);
-
-        $this->crud->setColumnDetails('text',[
-            'label' => "Text",
-            'name' => "text",
-            'type' => 'text'
+        $this->crud->setColumnDetails('image',[
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image'
         ]);
 
         $this->crud->removeColumns(['home_id']);

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('drives', function (Blueprint $table) {
+        Schema::create('transportations', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('from');

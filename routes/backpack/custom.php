@@ -33,7 +33,7 @@ Route::group([
     Route::crud('Gallery', 'GalleryController');
 
     // Bookings Routes
-    Route::crud('BookedDrive', 'BookedDriveController');
+    Route::crud('BookedTransportation', 'BookedTransportationController');
     Route::crud('BookedHotelRoom', 'BookedHotelRoomController');
     Route::crud('BookedProgram', 'BookedProgramController');
 
@@ -53,6 +53,6 @@ Route::group([
     // Contact Messages Routes
     Route::crud('ContactMessages', 'ContactMessagesController');
 
-    // Drives Routes
-    Route::crud('Drives', 'DriveController');
+    // Transportations Routes
+    Route::crud('Transportations', 'TransportationController');
 });

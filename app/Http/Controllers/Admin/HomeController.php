@@ -86,12 +86,9 @@ class HomeController extends CrudController
             'label'          => 'Home Banners',
             'backpack_crud'  => 'HomeBanner','columns' => [
                 [
-                    'label' => 'text',
-                    'name'  => 'text',
-                ],
-                [
-                    'label' => 'language',
-                    'name'  => 'language.language',
+                    'label' => 'image',
+                    'name'  => 'image',
+                    'type'  => 'image',
                 ],
             ],
         ])->to('after_content');

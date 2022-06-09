@@ -26,6 +26,8 @@ return new class extends Migration
 
             $table->text('first_name');
             $table->text('last_name');
+            $table->text('phone');
+            $table->text('email');
             $table->text('date_of_birth');
             $table->text('number_of_people');
             $table->text('passport_number');

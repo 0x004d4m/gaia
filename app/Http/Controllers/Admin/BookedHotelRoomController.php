@@ -72,6 +72,8 @@ class BookedHotelRoomController extends CrudController
         $this->crud->addField(['name' => 'price', 'type' => 'hidden', "value" => -1]);
         $this->crud->addField(['name' => 'first_name', 'type' => 'text']);
         $this->crud->addField(['name' => 'last_name', 'type' => 'text']);
+        $this->crud->addField(['name' =>'phone', 'type' => 'text']);
+        $this->crud->addField(['name' =>'email', 'type' => 'text']);
         $this->crud->addField(['name' => 'date_of_birth', 'type' => 'text']);
         $this->crud->addField(['name' => 'number_of_people', 'type' => 'text']);
         $this->crud->addField(['name' => 'passport_number', 'type' => 'text']);
@@ -105,6 +107,8 @@ class BookedHotelRoomController extends CrudController
         $this->crud->addField(['name' => 'price', 'type' => 'text','hint'=>'put -1 to get room original price']);
         $this->crud->addField(['name' => 'first_name', 'type' => 'text']);
         $this->crud->addField(['name' => 'last_name', 'type' => 'text']);
+        $this->crud->addField(['name' =>'phone', 'type' => 'text']);
+        $this->crud->addField(['name' =>'email', 'type' => 'text']);
         $this->crud->addField(['name' => 'date_of_birth', 'type' => 'text']);
         $this->crud->addField(['name' => 'number_of_people', 'type' => 'text']);
         $this->crud->addField(['name' => 'passport_number', 'type' => 'text']);

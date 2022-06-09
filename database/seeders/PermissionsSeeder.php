@@ -15,7 +15,7 @@ class PermissionsSeeder extends Seeder
             ["id"=>3,"name"=>"Manage Hotels","guard_name"=>"web"],
             ["id"=>4,"name"=>"Manage Programs","guard_name"=>"web"],
             ["id"=>5,"name"=>"Contact Messages","guard_name"=>"web"],
-            ["id"=>6,"name"=>"Manage Drives","guard_name"=>"web"],
+            ["id"=>6,"name"=>"Manage Transportations","guard_name"=>"web"],
             ["id"=>7,"name"=>"Manage Authentication","guard_name"=>"web"],
         ]);
 

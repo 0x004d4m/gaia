@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\GeneralRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-class BookedDriveController extends CrudController
+class BookedTransportationController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -19,9 +19,9 @@ class BookedDriveController extends CrudController
         {
             abort(403, 'Access denied');
         }
-        $this->crud->setModel("App\Models\BookedDrive");
-        $this->crud->setRoute("admin/BookedDrive");
-        $this->crud->setEntityNameStrings('Booked Drive', 'Booked Drives');
+        $this->crud->setModel("App\Models\BookedTransportation");
+        $this->crud->setRoute("admin/BookedTransportation");
+        $this->crud->setEntityNameStrings('Booked Transportation', 'Booked Transportations');
     }
 
     protected function setupListOperation()
@@ -37,13 +37,13 @@ class BookedDriveController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->setColumnDetails('drive_id',[
-            'label' => "Drive",
+        $this->crud->setColumnDetails('transportation_id',[
+            'label' => "Transportation",
             'type' => "select",
-            'name' => 'drive_id',
-            'entity' => 'drive',
+            'name' => 'transportation_id',
+            'entity' => 'transportation',
             'attribute' => "full_trip",
-            'model' => 'App\Models\Drive'
+            'model' => 'App\Models\Transportation'
         ]);
     }
 
@@ -52,12 +52,12 @@ class BookedDriveController extends CrudController
         $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField([
-            'label' => "Drive",
+            'label' => "Transportation",
             'type' => "relationship",
-            'name' => 'drive_id',
-            'entity' => 'drive',
+            'name' => 'transportation_id',
+            'entity' => 'transportation',
             'attribute' => "full_trip",
-            'model' => 'App\Models\Drive'
+            'model' => 'App\Models\Transportation'
         ]);
 
         $this->crud->addField([
@@ -72,6 +72,8 @@ class BookedDriveController extends CrudController
         $this->crud->addField(['name' => 'price', 'type' => 'hidden', "value" => -1]);
         $this->crud->addField(['name' => 'first_name', 'type' => 'text']);
         $this->crud->addField(['name' => 'last_name', 'type' => 'text']);
+        $this->crud->addField(['name' =>'phone', 'type' => 'text']);
+        $this->crud->addField(['name' =>'email', 'type' => 'text']);
         $this->crud->addField(['name' => 'date_of_birth', 'type' => 'text']);
         $this->crud->addField(['name' => 'number_of_people', 'type' => 'text']);
         $this->crud->addField(['name' => 'passport_number', 'type' => 'text']);
@@ -85,12 +87,12 @@ class BookedDriveController extends CrudController
         $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField([
-            'label' => "Drive",
+            'label' => "Transportation",
             'type' => "relationship",
-            'name' => 'drive_id',
-            'entity' => 'drive',
+            'name' => 'transportation_id',
+            'entity' => 'transportation',
             'attribute' => "full_trip",
-            'model' => 'App\Models\Drive'
+            'model' => 'App\Models\Transportation'
         ]);
 
         $this->crud->addField([
@@ -102,9 +104,11 @@ class BookedDriveController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->addField(['name' => 'price', 'type' => 'text','hint'=>'put -1 to get drive original price']);
+        $this->crud->addField(['name' => 'price', 'type' => 'text','hint'=>'put -1 to get transportation original price']);
         $this->crud->addField(['name' => 'first_name', 'type' => 'text']);
         $this->crud->addField(['name' => 'last_name', 'type' => 'text']);
+        $this->crud->addField(['name' =>'phone', 'type' => 'text']);
+        $this->crud->addField(['name' =>'email', 'type' => 'text']);
         $this->crud->addField(['name' => 'date_of_birth', 'type' => 'text']);
         $this->crud->addField(['name' => 'number_of_people', 'type' => 'text']);
         $this->crud->addField(['name' => 'passport_number', 'type' => 'text']);

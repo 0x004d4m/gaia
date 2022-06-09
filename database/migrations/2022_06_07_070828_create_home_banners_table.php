@@ -16,13 +16,10 @@ return new class extends Migration
         Schema::create('home_banners', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('language_id');
-            $table->foreign('language_id')->references('id')->on('languages');
-
             $table->unsignedBigInteger('home_id')->default(1);
             $table->foreign('home_id')->references('id')->on('homes');
 
-            $table->text('text');
+            $table->text('image');
 
             $table->timestamps();
             $table->softDeletes();

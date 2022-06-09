@@ -7,16 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BookedDrive extends Model
+class BookedTransportation extends Model
 {
     use HasFactory, SoftDeletes, CrudTrait;
 
     protected $fillable = [
-        'drive_id',
+        'transportation_id',
         'language_id',
         'price',
         'first_name',
         'last_name',
+        'phone',
+        'email',
         'date_of_birth',
         'number_of_people',
         'passport_number',
@@ -27,12 +29,12 @@ class BookedDrive extends Model
 
     public function setPriceAttribute($value)
     {
-        $this->attributes['price'] = ($value!=-1)?$value:Drive::where('id',$this->attributes['drive_id'])->first()->price;
+        $this->attributes['price'] = ($value!=-1)?$value:Transportation::where('id',$this->attributes['transportation_id'])->first()->price;
     }
 
-    public function drive()
+    public function transportation()
     {
-        return $this->belongsTo(Drive::class);
+        return $this->belongsTo(Transportation::class);
     }
 
     public function language()

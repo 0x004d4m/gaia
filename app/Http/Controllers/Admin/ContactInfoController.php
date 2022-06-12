@@ -58,7 +58,7 @@ class ContactInfoController extends CrudController
         $this->crud->addField(['name' => 'facebook', 'type' => 'textarea']);
         $this->crud->addField(['name' => 'snapchat', 'type' => 'textarea']);
         $this->crud->addField(['name' => 'instagram', 'type' => 'textarea']);
-        $this->crud->addField(['name' => 'location', 'type' => 'textarea']);
+        $this->crud->addField(['name' => 'location', 'type' => 'textarea','hint'=>'Go to google maps select the location then press share choose embed, copy it and paste it in the text area']);
     }
 
     protected function setupShowOperation()

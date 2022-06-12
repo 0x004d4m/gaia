@@ -15,7 +15,7 @@ class MainSeeder extends Seeder
         ]);
 
         DB::table('abouts')->insert([
-            ["id"=>1,"image"=>"images/bg_1.jpg"],
+            ["id"=>1,"image"=>"images/bg_1.jpg","image2"=>"images/about-1.jpg"],
         ]);
 
         DB::table('about_texts')->insert([
@@ -23,7 +23,7 @@ class MainSeeder extends Seeder
         ]);
 
         DB::table('homes')->insert([
-            ["id"=>1,"image"=>"images/bg_5.jpg","video_url"=>"https://youtu.be/xLOrhoZevT4"],
+            ["id"=>1,"image"=>"images/bg_5.jpg","video_url"=>"petra.mp4"],
         ]);
 
         DB::table('home_texts')->insert([
@@ -40,7 +40,7 @@ class MainSeeder extends Seeder
                 "facebook"=>"https://web.facebook.com/GaiaToursJordan/?_rdc=1&_rdr",
                 "snapchat"=>"-",
                 "instagram"=>"https://www.instagram.com/gaia_tours/",
-                "location"=>"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d16099.468810865834!2d35.87031172005533!3d31.974556210827107!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x91ec9ec47874b0dd!2sGaia%20Tours!5e0!3m2!1sen!2sjo!4v1630101588477!5m2!1sen!2sjo",
+                "location"=>'<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.7679099433076!2d35.87142031493794!3d31.967192532140782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca0536fcfbe31%3A0x91ec9ec47874b0dd!2sGaia%20Tours!5e0!3m2!1sen!2sjo!4v1655033544198!5m2!1sen!2sjo" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
             ],
         ]);
 

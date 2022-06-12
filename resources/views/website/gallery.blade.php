@@ -1,7 +1,7 @@
 @extends('website.layout.main')
 @section('title') {{__('website.Gallery')}} @endsection
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url('images/bg_1.jpg')}}');">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url($About)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -12,30 +12,18 @@
         </div>
     </section>
 
-    <section class="ftco-section">
+    <section class="ftco-section" id="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap hotel">
-                        <a href="#" class="img" style="background-image: url(images/hotel-resto-1.jpg);"></a>
+                @foreach ($Gallery as $item)
+                    <div class="col-md-4 ftco-animate">
+                        <div class="project-wrap hotel">
+                            <a href="{{url($item->image)}}" target="_blank" class="img" style="background-image: url({{url($item->image)}});"></a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {{ $Gallery->links('vendor.pagination.custom') }}
         </div>
     </section>
 @endsection

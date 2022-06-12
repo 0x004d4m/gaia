@@ -29,7 +29,16 @@ class Home extends Model
     }
 
     public function getImageAttribute($value){
-        return url('public/'.$value);
+        return url($value);
+        // return url('public/'.$value);
+    }
+
+    public function setVideoUrlAttribute($value){
+        $attribute_name = "video_url";
+        $disk = "public";
+        $destination_path = "video";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
     }
 
     public function setImageAttribute($value)

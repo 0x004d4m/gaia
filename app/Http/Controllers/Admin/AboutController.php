@@ -32,6 +32,12 @@ class AboutController extends CrudController
             'name' => "image",
             'type' => 'image'
         ]);
+
+        $this->crud->setColumnDetails('image2',[
+            'label' => "Image2",
+            'name' => "image2",
+            'type' => 'image'
+        ]);
     }
 
     protected function setupUpdateOperation()
@@ -39,6 +45,7 @@ class AboutController extends CrudController
         $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
+        $this->crud->addField(['name' => 'image2', 'type' => 'image']);
     }
 
     protected function setupShowOperation()
@@ -48,6 +55,12 @@ class AboutController extends CrudController
         $this->crud->setColumnDetails('image',[
             'label' => "Image",
             'name' => "image",
+            'type' => 'image'
+        ]);
+
+        $this->crud->setColumnDetails('image2',[
+            'label' => "Image2",
+            'name' => "image2",
             'type' => 'image'
         ]);
 

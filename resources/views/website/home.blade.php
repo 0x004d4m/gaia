@@ -1,15 +1,15 @@
 @extends('website.layout.main')
 @section('title') {{__('website.Home')}} @endsection
 @section('content')
-    <div class="hero-wrap js-fullheight" style="background-image: url('{{url('images/bg_5.jpg')}}');">
+    <div class="hero-wrap js-fullheight" style="background-image: url('{{url($Home->image)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate">
                     <span class="subheading">{{__('website.Welcome')}}</span>
-					<p class="caps">Travel to the any corner of the world, without going around in circlesTravel to the any corner of the world, without going around in circlesTravel to the any corner of the world, without going around in circlesTravel to the any corner of the world, without going around in circlesTravel to the any corner of the world, without going around in circlesTravel to the any corner of the world, without going around in circlesTravel to the any corner of the world, without going around in circles</p>
+					<p class="caps">{{$Text}}</p>
                 </div>
-                <a href="https://www.youtube.com/embed/xLOrhoZevT4" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                <a href="{{url($Home->video_url)}}" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
                     <span class="fa fa-play"></span>
                 </a>
             </div>
@@ -180,7 +180,7 @@
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Pacific Provide Places</span>
+                    {{-- <span class="subheading">Pacific Provide Places</span> --}}
                 </div>
             </div>
         </div>
@@ -188,12 +188,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="carousel-destination owl-carousel ftco-animate">
-                        <div class="item">
-                            <div class="project-destination">
-                                <a class="img" style="background-image: url(images/place-1.jpg);">
-                                </a>
+                        @foreach ($Banners as $Banner)
+                            <div class="item">
+                                <div class="project-destination">
+                                    <a class="img" style="background-image: url({{url($Banner->image)}});">
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

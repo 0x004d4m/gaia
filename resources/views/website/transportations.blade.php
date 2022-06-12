@@ -1,7 +1,7 @@
 @extends('website.layout.main')
 @section('title') {{__('website.Transportations')}} @endsection
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url('images/bg_1.jpg')}}');">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url($About)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -25,21 +25,11 @@
                                         <div class="form-field">
                                             <div class="select-wrap">
                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">$5,000</option>
-                                                    <option value="">$10,000</option>
-                                                    <option value="">$50,000</option>
-                                                    <option value="">$100,000</option>
-                                                    <option value="">$200,000</option>
-                                                    <option value="">$300,000</option>
-                                                    <option value="">$400,000</option>
-                                                    <option value="">$500,000</option>
-                                                    <option value="">$600,000</option>
-                                                    <option value="">$700,000</option>
-                                                    <option value="">$800,000</option>
-                                                    <option value="">$900,000</option>
-                                                    <option value="">$1,000,000</option>
-                                                    <option value="">$2,000,000</option>
+                                                <select name="from" id="" class="form-control">
+                                                    <option value=""></option>
+                                                    @foreach ($Locations as $Location)
+                                                        <option value="{{$Location->id}}" {{Request::has('from') && Request::get('from') == $Location->id?'selected':''}}>{{$Location->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -51,21 +41,11 @@
                                         <div class="form-field">
                                             <div class="select-wrap">
                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">$5,000</option>
-                                                    <option value="">$10,000</option>
-                                                    <option value="">$50,000</option>
-                                                    <option value="">$100,000</option>
-                                                    <option value="">$200,000</option>
-                                                    <option value="">$300,000</option>
-                                                    <option value="">$400,000</option>
-                                                    <option value="">$500,000</option>
-                                                    <option value="">$600,000</option>
-                                                    <option value="">$700,000</option>
-                                                    <option value="">$800,000</option>
-                                                    <option value="">$900,000</option>
-                                                    <option value="">$1,000,000</option>
-                                                    <option value="">$2,000,000</option>
+                                                <select name="to" id="" class="form-control">
+                                                    <option value=""></option>
+                                                    @foreach ($Locations as $Location)
+                                                        <option value="{{$Location->id}}" {{Request::has('to') && Request::get('to') == $Location->id?'selected':''}}>{{$Location->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -89,32 +69,20 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap hotel">
-                        <div class="text p-4 text-center">
-                            <h3><span class="days">From:</span> <a href="#">Amman</a></h3>
-                            <h3><span class="days">To:</span> <a href="#">Aqaba</a></h3>
-                            <p><span class="price">$200/person</span></p>
-                            <a class="btn btn-primary" href="#">Book Now</a>
+                @foreach ($Transportations as $Transportation)
+                    <div class="col-md-4 ftco-animate mb-5">
+                        <div class="project-wrap hotel">
+                            <div class="text p-4 text-center">
+                                <h3><span class="days">From:</span> <span>{{$Transportation->locationFrom->name}}</span></h3>
+                                <h3><span class="days">To:</span> <span>{{$Transportation->locationTo->name}}</span></h3>
+                                <p><span class="price">${{$Transportation->price}}</span></p>
+                                <a class="btn btn-primary" href="/Transportation/{{$Transportation->id}}">Book Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {{ $Transportations->links('vendor.pagination.custom') }}
         </div>
     </section>
 @endsection

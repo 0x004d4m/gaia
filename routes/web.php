@@ -6,6 +6,7 @@ use App\Http\Controllers\Website\{
     GalleryController,
     HomeController,
     HotelsController,
+    LanguageController,
     ProgramsController,
     TransportationController
 };
@@ -26,10 +27,19 @@ Route::get('/', function () {
     return redirect('/Home');
 });
 
-Route::get('/Home', [HomeController::class, 'index']);
-Route::get('/About', [AboutController::class, 'index']);
-Route::get('/Gallery', [GalleryController::class, 'index']);
-Route::get('/Programs', [ProgramsController::class, 'index']);
-Route::get('/Hotels', [HotelsController::class, 'index']);
-Route::get('/Transportation', [TransportationController::class, 'index']);
-Route::get('/Contact', [ContactController::class, 'index']);
+Route::group([
+    'middleware' => 'language'
+], function () {
+    Route::get('/Language/{language_id}', [LanguageController::class, 'language']);
+    Route::get('/Home', [HomeController::class, 'index']);
+    Route::get('/About', [AboutController::class, 'index']);
+    Route::get('/Gallery', [GalleryController::class, 'index']);
+    Route::get('/Programs', [ProgramsController::class, 'index']);
+    Route::get('/Programs/{program_id}', [ProgramsController::class, 'show']);
+    Route::get('/Hotels', [HotelsController::class, 'index']);
+    Route::get('/Hotels/{hotel_id}', [HotelsController::class, 'show']);
+    Route::get('/Transportation', [TransportationController::class, 'index']);
+    Route::get('/Transportation/{transportation_id}', [TransportationController::class, 'show']);
+    Route::get('/Contact', [ContactController::class, 'index']);
+    Route::post('/Contact', [ContactController::class, 'store']);
+});

@@ -1,7 +1,7 @@
 @extends('website.layout.main')
 @section('title') {{__('website.Programs')}} @endsection
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url('images/bg_1.jpg')}}');">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url($About)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -17,14 +17,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="search-wrap-1 ftco-animate">
-                        <form action="#" class="search-property-1">
+                        <form action="#container" class="search-property-1">
                             <div class="row no-gutters">
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
                                         <label for="#">Search in Programs</label>
                                         <div class="form-field">
                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                            <input type="text" class="form-control" placeholder="Programs Search">
+                                            <input name="name" type="text" class="form-control" placeholder="Programs Search" value="{{Request::has('name')?Request::get('name'):''}}">
                                         </div>
                                     </div>
                                 </div>
@@ -34,21 +34,11 @@
                                         <div class="form-field">
                                             <div class="select-wrap">
                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">$5,000</option>
-                                                    <option value="">$10,000</option>
-                                                    <option value="">$50,000</option>
-                                                    <option value="">$100,000</option>
-                                                    <option value="">$200,000</option>
-                                                    <option value="">$300,000</option>
-                                                    <option value="">$400,000</option>
-                                                    <option value="">$500,000</option>
-                                                    <option value="">$600,000</option>
-                                                    <option value="">$700,000</option>
-                                                    <option value="">$800,000</option>
-                                                    <option value="">$900,000</option>
-                                                    <option value="">$1,000,000</option>
-                                                    <option value="">$2,000,000</option>
+                                                <select name="price" id="" class="form-control">
+                                                    <option value=""></option>
+                                                    @foreach ($Prices as $Price)
+                                                        <option value="{{$Price->price}}" {{Request::has('price') && Request::get('price') == $Price->price?'selected':''}}>${{$Price->price}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -69,36 +59,24 @@
         </div>
     </section>
 
-    <section class="ftco-section">
+    <section class="ftco-section" id="container">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 ftco-animate">
-                    <div class="project-wrap hotel">
-                        <a href="#" class="img" style="background-image: url(images/hotel-resto-1.jpg);">
-                            <span class="price">$200</span>
-                        </a>
-                        <div class="text p-4 text-center">
-                            <h3 class="mb-2"><a href="#">First Program</a></h3>
-                            <a class="btn btn-primary" href="#">Read More</a>
+                @foreach ($Programs as $Program)
+                    <div class="col-md-4 ftco-animate">
+                        <div class="project-wrap hotel">
+                            <a href="/Programs/{{$Program->id}}" class="img" style="background-image: url({{url($Program->image)}});">
+                                <span class="price">${{$Program->price}}</span>
+                            </a>
+                            <div class="text p-4 text-center">
+                                <h3 class="mb-2"><a href="/Programs/{{$Program->id}}">{{$Program->name}}</a></h3>
+                                <a class="btn btn-primary" href="/Programs/{{$Program->id}}">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {{ $Programs->links('vendor.pagination.custom') }}
         </div>
     </section>
 @endsection

@@ -45,7 +45,13 @@ class HomeController extends CrudController
         $this->crud->setValidation(GeneralRequest::class);
 
         $this->crud->addField(['name' => 'image', 'type' => 'image']);
-        $this->crud->addField(['name' => 'video_url', 'type' => 'text']);
+
+        $this->crud->addField([
+            'name'      => 'video_url',
+            'label'     => 'Video',
+            'type'      => 'upload',
+            'upload'    => true,
+        ],);
     }
 
     protected function setupShowOperation()

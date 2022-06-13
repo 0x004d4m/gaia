@@ -35,6 +35,10 @@ return new class extends Migration
             $table->text('passport_expiry_date');
             $table->text('nationality');
 
+            $table->text('status')->default(0);
+            $table->text('hyperpay_create_payment')->nullable();
+            $table->text('hyperpay_check_payment')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

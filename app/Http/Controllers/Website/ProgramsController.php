@@ -8,6 +8,7 @@ use App\Models\BookedProgram;
 use App\Models\Program;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class ProgramsController extends Controller
@@ -37,9 +38,12 @@ class ProgramsController extends Controller
 
     public function store(Request $request, $program_id)
     {
-        // if(pay(Program::where('id', $program_id)->first()->price)){
+        $hyperpay = createPayment(Program::where('id', $program_id)->first()->price);
+        $hyperpay_decoded = json_decode($hyperpay);
+
+        if($hyperpay_decoded->result->code == '000.200.100'){
             try{
-                BookedProgram::create([
+                $BookedProgram = BookedProgram::create([
                     'program_id' => $program_id,
                     'language_id' => Session::get('language_id'),
                     'price' => -1,
@@ -52,20 +56,66 @@ class ProgramsController extends Controller
                     'passport_number' => $request->passport_number,
                     'passport_issue_date' => $request->passport_issue_date,
                     'passport_expiry_date' => $request->passport_expiry_date,
-                    'nationality' => $request->nationality
+                    'nationality' => $request->nationality,
+                    'hyperpay_create_payment' => $hyperpay
                 ]);
 
-                Session::put("Message", 'Thank You For Booking, Someone Will Contact You Later To Confirm');
-                Session::put("Color", "success");
+                return redirect("/BookedPrograms/".$BookedProgram->id."/Pay");
             }catch(Exception $e){
                 Session::put("Message", 'Something Went Wrong');
                 Session::put("Color", "danger");
             }
-        // }else{
-        //     Session::put("Message", 'Payment unsuccessful, please try again later.');
-        //     Session::put("Color", "danger");
-        // }
+        }else{
+            Session::put("Message", 'Payment unsuccessful, please try again later.');
+            Session::put("Color", "danger");
+        }
 
         return redirect("/Programs/$program_id");
+    }
+
+    public function pay(Request $request, $booked_program_id)
+    {
+        $BookedProgram = BookedProgram::where('id', $booked_program_id)->first();
+
+        return view('website.pay',[
+            "Price"=>$BookedProgram->price,
+            "Type"=>'BookedPrograms',
+            "BookedID" => $BookedProgram->id,
+            "HyperpayId" => json_decode($BookedProgram->hyperpay_create_payment)->id,
+        ]);
+
+    }
+
+    public function check(Request $request, $booked_program_id)
+    {
+        $BookedProgram = BookedProgram::where('id', $booked_program_id)->first();
+        if($BookedProgram->status==0 && $BookedProgram->hyperpay_check_payment == null){
+            $hyperpay_decoded = json_decode($BookedProgram->hyperpay_create_payment);
+
+            $hyperpay_checkpayment =  checkPayment($hyperpay_decoded->id);
+            $hyperpay_checkpayment_decoded =  json_decode($hyperpay_checkpayment);
+
+            if(
+                $hyperpay_checkpayment_decoded->result->code == '000.100.110'
+                &&
+                $hyperpay_decoded->id == $request->id
+            ){
+                $BookedProgram->update([
+                    "status" => 1,
+                    'hyperpay_check_payment' => $hyperpay_checkpayment
+                ]);
+                return view('website.paymentSuccess');
+            }else{
+                Log::debug('hyperpay_decoded');
+                Log::debug($BookedProgram->hyperpay_create_payment);
+                Log::debug('hyperpay_checkpayment_decoded');
+                Log::debug($hyperpay_checkpayment);
+                return view('website.paymentFailed',[
+                    "Error" => $hyperpay_checkpayment_decoded->result->description
+                ]);
+            }
+        }else{
+            return view('website.paymentSuccess');
+        }
     }
 }

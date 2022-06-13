@@ -45,6 +45,9 @@ class BookedTransportationController extends CrudController
             'attribute' => "full_trip",
             'model' => 'App\Models\Transportation'
         ]);
+
+        $this->crud->addClause('where','status',1);
+        $this->crud->removeColumns(['hyperpay_create_payment','hyperpay_check_payment','status']);
     }
 
     protected function setupCreateOperation()
@@ -120,5 +123,6 @@ class BookedTransportationController extends CrudController
     protected function setupShowOperation()
     {
         $this->crud->setFromDb();
+        $this->crud->removeColumns(['hyperpay_create_payment','hyperpay_check_payment','status']);
     }
 }

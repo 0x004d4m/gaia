@@ -45,6 +45,9 @@ class BookedHotelRoomController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\HotelRoom'
         ]);
+
+        $this->crud->addClause('where','status',1);
+        $this->crud->removeColumns(['hyperpay_create_payment','hyperpay_check_payment','status']);
     }
 
     protected function setupCreateOperation()
@@ -138,5 +141,6 @@ class BookedHotelRoomController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\HotelRoom'
         ]);
+        $this->crud->removeColumns(['hyperpay_create_payment','hyperpay_check_payment','status']);
     }
 }

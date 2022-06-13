@@ -24,7 +24,10 @@ class BookedTransportation extends Model
         'passport_number',
         'passport_issue_date',
         'passport_expiry_date',
-        'nationality'
+        'nationality',
+        'status',
+        'hyperpay_create_payment',
+        'hyperpay_check_payment',
     ];
 
     public function setPriceAttribute($value)

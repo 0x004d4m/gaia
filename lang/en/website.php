@@ -45,4 +45,7 @@ return [
     'Locations' => "Locations",
     'price' => "Price",
     'BookNow' => "Book Now",
+    'paymentFailed' => "Payment Failed",
+    'paymentSuccess' => "Payment Success",
+    'startPayment' => "Start Payment",
 ];

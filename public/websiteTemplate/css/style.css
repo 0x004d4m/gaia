@@ -5290,7 +5290,7 @@ a.close.disabled {
 .carousel-item {
   position: relative;
   display: none;
-  float: left;
+  float: none;
   width: 100%;
   margin-right: -100%;
   -webkit-backface-visibility: hidden;

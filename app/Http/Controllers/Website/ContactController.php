@@ -35,11 +35,10 @@ class ContactController extends Controller
             ]);
             Session::put("Message", 'Message Sent Successfully');
             Session::put("Color", "success");
-            return redirect('/Contact');
         }catch(Exception $e){
-            Session::put("Message", 'Something Went Wrongy');
+            Session::put("Message", 'Something Went Wrong');
             Session::put("Color", "danger");
-            return redirect('/Contact');
         }
+        return redirect('/Contact');
     }
 }

@@ -36,10 +36,13 @@ Route::group([
     Route::get('/Gallery', [GalleryController::class, 'index']);
     Route::get('/Programs', [ProgramsController::class, 'index']);
     Route::get('/Programs/{program_id}', [ProgramsController::class, 'show']);
+    Route::post('/Programs/{program_id}', [ProgramsController::class, 'store']);
     Route::get('/Hotels', [HotelsController::class, 'index']);
     Route::get('/Hotels/{hotel_id}', [HotelsController::class, 'show']);
+    Route::post('/Hotels/{hotel_id}', [HotelsController::class, 'store']);
     Route::get('/Transportation', [TransportationController::class, 'index']);
     Route::get('/Transportation/{transportation_id}', [TransportationController::class, 'show']);
+    Route::post('/Transportation/{transportation_id}', [TransportationController::class, 'store']);
     Route::get('/Contact', [ContactController::class, 'index']);
     Route::post('/Contact', [ContactController::class, 'store']);
 });

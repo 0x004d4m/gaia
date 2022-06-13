@@ -6,7 +6,7 @@
             <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-0 bread">Contact us</h1>
+                    <h1 class="mb-0 bread">{{__('website.ContactUs')}}</h1>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                         <span class="fa fa-phone"></span>
                         </div>
-                        <h3 class="mb-2">Contact Number 1</h3>
+                        <h3 class="mb-2">{{__('website.ContactNumber1')}}</h3>
                         <p><a href="tel://{{$ContactInfo->phone1}}">{{$ContactInfo->phone1}}</a></p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-phone"></span>
                         </div>
-                        <h3 class="mb-2">Contact Number 2</h3>
+                        <h3 class="mb-2">{{__('website.ContactNumber2')}}</h3>
                         <p><a href="tel://{{$ContactInfo->phone2}}">{{$ContactInfo->phone2}}</a></p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-paper-plane"></span>
                         </div>
-                        <h3 class="mb-2">Email Address</h3>
+                        <h3 class="mb-2">{{__('website.EmailAddress')}}</h3>
                         <p><a href="mailto:{{$ContactInfo->email}}">{{$ContactInfo->email}}</a></p>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="fa fa-envelope"></span>
                         </div>
-                        <h3 class="mb-2">P.O.Box</h3>
+                        <h3 class="mb-2">{{__('website.POBox')}}</h3>
                         <p><a href="#">{{$ContactInfo->POBox}}</a></p>
                     </div>
                 </div>
@@ -69,25 +69,25 @@
                                     Session::forget('Color');
                                 @endphp
                             @endif
-                            <input name="first_name" type="text" class="form-control" placeholder="First Name" required>
+                            <input name="first_name" type="text" class="form-control" placeholder="{{__('website.first_name')}}" required>
                         </div>
                         <div class="form-group">
-                            <input name="last_name" type="text" class="form-control" placeholder="Last Name" required>
+                            <input name="last_name" type="text" class="form-control" placeholder="{{__('website.last_name')}}" required>
                         </div>
                         <div class="form-group">
-                            <input name="email" type="email" class="form-control" placeholder="Your Email" required>
+                            <input name="email" type="email" class="form-control" placeholder="{{__('website.email')}}" required>
                         </div>
                         <div class="form-group">
-                            <input name="phone" type="text" class="form-control" placeholder="Your Phone Number" required>
+                            <input name="phone" type="text" class="form-control" placeholder="{{__('website.phone')}}" required>
                         </div>
                         <div class="form-group">
-                            <input name="subject" type="text" class="form-control" placeholder="Subject" required>
+                            <input name="subject" type="text" class="form-control" placeholder="{{__('website.Subject')}}" required>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+                            <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="{{__('website.Message')}}" required></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                            <input type="submit" value="{{__('website.SendMessage')}}" class="btn btn-primary py-3 px-5">
                         </div>
                     </form>
                 </div>

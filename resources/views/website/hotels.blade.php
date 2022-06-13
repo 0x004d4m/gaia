@@ -21,16 +21,16 @@
                             <div class="row no-gutters">
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
-                                        <label for="#">Hotel Name</label>
+                                        <label for="#">{{__('website.HotelName')}}</label>
                                         <div class="form-field">
                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                            <input name="name" type="text" class="form-control" placeholder="Search Hotels" value="{{Request::has('name')?Request::get('name'):''}}">
+                                            <input name="name" type="text" class="form-control" placeholder="{{__('website.SearchHotels')}}" value="{{Request::has('name')?Request::get('name'):''}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
-                                        <label for="#">Locations</label>
+                                        <label for="#">{{__('website.Locations')}}</label>
                                         <div class="form-field">
                                             <div class="select-wrap">
                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
@@ -47,7 +47,7 @@
                                 <div class="col-lg d-flex">
                                     <div class="form-group d-flex w-100 border-0">
                                         <div class="form-field w-100 align-items-center d-flex">
-                                            <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
+                                            <input type="submit" value="{{__('website.Search')}}" class="align-self-stretch form-control btn btn-primary">
                                         </div>
                                     </div>
                                 </div>
@@ -70,8 +70,8 @@
                             </a>
                             <div class="text p-4 text-center">
                                 <h3 class="mb-2"><a href="/Hotels/{{$Hotel->id}}">{{$Hotel->name}}</a></h3>
-                                <a class="btn btn-primary" href="/Hotels/{{$Hotel->id}}">Book Now</a>
-                                <a class="btn btn-primary" href="{{$Hotel->url}}">Hotel Site</a>
+                                <a class="btn btn-primary" href="/Hotels/{{$Hotel->id}}">{{__('website.BookNow')}}</a>
+                                <a class="btn btn-primary" href="{{$Hotel->url}}">{{__('website.HotelSite')}}</a>
                             </div>
                         </div>
                     </div>

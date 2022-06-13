@@ -19,11 +19,15 @@ class Program extends Model
     ];
 
     protected $appends = [
-        'name','image'
+        'name', 'image', 'text'
     ];
 
     public function getNameAttribute($value) {
         return ProgramText::where('program_id',$this->attributes['id'])->where('language_id', Session::get('language_id')==null?1:Session::get('language_id'))->first()->name ?? $this->attributes['id'];
+    }
+
+    public function getTextAttribute($value) {
+        return ProgramText::where('program_id',$this->attributes['id'])->where('language_id', Session::get('language_id')==null?1:Session::get('language_id'))->first()->text ?? $this->attributes['id'];
     }
 
     public function getImageAttribute($value) {

@@ -24,7 +24,7 @@ class LanguageMiddleware
             $Language = Language::first();
             Session::put('language_id', $Language->id);
             Session::put('language_name', $Language->language);
-            Session::put('language_dir', $Language->diriction);
+            Session::put('language_dir', $Language->direction);
         }
         Session::put('languages',Language::get());
         $ContactInfo = ContactInfo::first();

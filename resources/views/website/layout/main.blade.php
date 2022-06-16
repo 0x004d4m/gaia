@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <title>Gaia Tours | @yield('title')</title>
         @include('website.layout.styles')
         @stack('styles')
     </head>
-    <body>
+    <body dir="{{Session::get('language_dir')}}">
         @include('website.layout.navbar')
         @yield('content')
         @include('website.layout.footer')

@@ -46,7 +46,7 @@
             </div>
             <div class="row justify-content-center my-5" id="from">
                 <div class="col-md-8 cext-center">
-                    <h3 class="text-center">{{__('BookNow')}}</h3>
+                    <h3 class="text-center">{{t('book_now')}}</h3>
                     <form method="POST" action="#from">
                         @csrf
                         <div class="row">
@@ -61,72 +61,72 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput1">{{__('website.first_name')}}</label>
+                                  <label for="exampleFormControlInput1">{{t('first_name')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput1" required name="first_name">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput2">{{__('website.last_name')}}</label>
+                                  <label for="exampleFormControlInput2">{{t('last_name')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput2" required name="last_name">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput3">{{__('website.phone')}}</label>
+                                  <label for="exampleFormControlInput3">{{t('phone')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput3" required name="phone">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput4">{{__('website.email')}}</label>
+                                  <label for="exampleFormControlInput4">{{t('email')}}</label>
                                   <input type="email" class="form-control" id="exampleFormControlInput4" required name="email">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput5">{{__('website.date_of_birth')}}</label>
+                                  <label for="exampleFormControlInput5">{{t('date_of_birth')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput5" required name="date_of_birth">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput6">{{__('website.number_of_people')}}</label>
+                                  <label for="exampleFormControlInput6">{{t('number_of_people')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput6" required name="number_of_people">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput7">{{__('website.passport_number')}}</label>
+                                  <label for="exampleFormControlInput7">{{t('passport_number')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput7" required name="passport_number">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput8">{{__('website.passport_issue_date')}}</label>
+                                  <label for="exampleFormControlInput8">{{t('passport_issue_date')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput8" required name="passport_issue_date">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput9">{{__('website.passport_expiry_date')}}</label>
+                                  <label for="exampleFormControlInput9">{{t('passport_expiry_date')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput9" required name="passport_expiry_date">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput10">{{__('website.nationality')}}</label>
+                                  <label for="exampleFormControlInput10">{{t('nationality')}}</label>
                                   <input type="text" class="form-control" id="exampleFormControlInput10" required name="nationality">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                  <label for="exampleFormControlInput11">{{__('website.price')}}</label>
+                                  <label for="exampleFormControlInput11">{{t('price')}}</label>
                                   <input type="text" class="form-control text-center" id="exampleFormControlInput11" name="price" value="{{$Program->price}}" readonly>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">{{__('website.Submit')}}</button>
+                                <button type="submit" class="btn btn-primary">{{t('submit')}}</button>
                             </div>
                         </div>
                       </form>

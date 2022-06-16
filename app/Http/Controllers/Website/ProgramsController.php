@@ -62,11 +62,11 @@ class ProgramsController extends Controller
 
                 return redirect("/BookedPrograms/".$BookedProgram->id."/Pay");
             }catch(Exception $e){
-                Session::put("Message", 'Something Went Wrong');
+                Session::put("Message", t('something_went_wrong'));
                 Session::put("Color", "danger");
             }
         }else{
-            Session::put("Message", 'Payment unsuccessful, please try again later.');
+            Session::put("Message", t('payment_unsuccessful'));
             Session::put("Color", "danger");
         }
 

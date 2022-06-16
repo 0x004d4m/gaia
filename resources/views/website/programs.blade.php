@@ -1,12 +1,12 @@
 @extends('website.layout.main')
-@section('title') {{__('website.Programs')}} @endsection
+@section('title') {{t('programs')}} @endsection
 @section('content')
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url($About)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-0 bread">{{__('website.Programs')}}</h1>
+                    <h1 class="mb-0 bread">{{t('programs')}}</h1>
                 </div>
             </div>
         </div>
@@ -21,16 +21,16 @@
                             <div class="row no-gutters">
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
-                                        <label for="#">{{__('website.SearchinPrograms')}}</label>
+                                        <label for="#">{{t('search')}}</label>
                                         <div class="form-field">
                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                            <input name="name" type="text" class="form-control" placeholder="{{__('website.ProgramsSearch')}}" value="{{Request::has('name')?Request::get('name'):''}}">
+                                            <input name="name" type="text" class="form-control" placeholder="{{t('search')}}" value="{{Request::has('name')?Request::get('name'):''}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
-                                        <label for="#">{{__('website.Prices')}}</label>
+                                        <label for="#">{{t('price')}}</label>
                                         <div class="form-field">
                                             <div class="select-wrap">
                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
@@ -70,7 +70,7 @@
                             </a>
                             <div class="text p-4 text-center">
                                 <h3 class="mb-2"><a href="/Programs/{{$Program->id}}">{{$Program->name}}</a></h3>
-                                <a class="btn btn-primary" href="/Programs/{{$Program->id}}">{{__('website.ReadMore')}}</a>
+                                <a class="btn btn-primary" href="/Programs/{{$Program->id}}">{{t('read_more')}}</a>
                             </div>
                         </div>
                     </div>

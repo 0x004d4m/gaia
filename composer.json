@@ -33,7 +33,8 @@
     },
     "autoload-dev": {
         "files": [
-            "app/Helpers/Hyperpay.php"
+            "app/Helpers/hyperpay.php",
+            "app/Helpers/translation.php"
         ],
         "psr-4": {
             "Tests\\": "tests/"

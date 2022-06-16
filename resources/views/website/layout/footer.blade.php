@@ -5,6 +5,9 @@
                 <p>
                     &copy; <script>document.write(new Date().getFullYear());</script> Gaia Tours | All rights reserved
                 </p>
+                <p>
+                    <a href="{{url('/TermsAndConditions')}}">{{t('terms_and_conditions')}}</a>
+                </p>
                 <ul class="ftco-footer-social list-unstyled">
                     @if (Session::get('facebook') !== '-')
                         <li class="ftco-animate"><a href="{{Session::get('facebook')}}" target="_blank"><span class="fa fa-facebook"></span></a></li>

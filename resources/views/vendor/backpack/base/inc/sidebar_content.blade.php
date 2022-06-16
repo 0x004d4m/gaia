@@ -10,6 +10,7 @@
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('About') }}">About</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('ContactInfo') }}">ContactInfo</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ backpack_url('Gallery') }}">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ backpack_url('WebsiteContent') }}">Website Content</a></li>
         </ul>
     </li>
 @endif

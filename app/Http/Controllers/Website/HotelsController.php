@@ -38,35 +38,6 @@ class HotelsController extends Controller
         ]);
     }
 
-    // public function store(Request $request, $hotel_id)
-    // {
-    //     try{
-    //         BookedHotelRoom::create([
-    //             'hotel_room_id' => $request->hotel_room_id,
-    //             'language_id' => Session::get('language_id'),
-    //             'price' => -1,
-    //             'first_name' => $request->first_name,
-    //             'last_name' => $request->last_name,
-    //             'phone' => $request->phone,
-    //             'email' => $request->email,
-    //             'date_of_birth' => $request->date_of_birth,
-    //             'number_of_people' => $request->number_of_people,
-    //             'passport_number' => $request->passport_number,
-    //             'passport_issue_date' => $request->passport_issue_date,
-    //             'passport_expiry_date' => $request->passport_expiry_date,
-    //             'nationality' => $request->nationality
-    //         ]);
-
-    //         Session::put("Message", 'Thank You For Booking Someone Will Contact You Later To Confirm');
-    //         Session::put("Color", "success");
-    //     }catch(Exception $e){
-    //         Session::put("Message", 'Something Went Wrong');
-    //         Session::put("Color", "danger");
-    //     }
-
-    //     return redirect("/Hotels/$hotel_id");
-    // }
-
     public function store(Request $request, $hotel_id)
     {
         $hyperpay = createPayment(HotelRoom::where('id',$request->hotel_room_id)->first()->price);
@@ -93,11 +64,11 @@ class HotelsController extends Controller
 
                 return redirect("/BookedHotelRoom/".$BookedHotelRoom->id."/Pay");
             }catch(Exception $e){
-                Session::put("Message", 'Something Went Wrong');
+                Session::put("Message", t('something_went_wrong'));
                 Session::put("Color", "danger");
             }
         }else{
-            Session::put("Message", 'Payment unsuccessful, please try again later.');
+            Session::put("Message", t('payment_unsuccessful'));
             Session::put("Color", "danger");
         }
 

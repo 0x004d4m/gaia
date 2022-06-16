@@ -1,8 +1,8 @@
 @extends('website.layout.main')
-@section('title') {{__('website.paymentFailed')}} @endsection
+@section('title') {{t('payment_failed')}} @endsection
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="">
-        <div class="overlay"></div>
+    <section class="hero-wrap hero-wrap-2 js-fullheight">
+        <div class="overlay" style="opacity: .9;"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">

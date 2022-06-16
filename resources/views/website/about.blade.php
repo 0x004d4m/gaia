@@ -1,12 +1,12 @@
 @extends('website.layout.main')
-@section('title') {{__('website.AboutUs')}} @endsection
+@section('title') {{t('about_us')}} @endsection
 @section('content')
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url($About)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-0 bread">{{__('website.AboutUs')}}</h1>
+                    <h1 class="mb-0 bread">{{t('about_us')}}</h1>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
                         <div class="col-md-6 pl-md-5 py-5">
                             <div class="row justify-content-start pb-3">
                                 <div class="col-md-12 heading-section ftco-animate">
-                                    <span class="subheading">{{__('website.AboutUs')}}</span>
+                                    <span class="subheading">{{t('about_us')}}</span>
                                     <p>{{$Text}}</p>
                                 </div>
                             </div>

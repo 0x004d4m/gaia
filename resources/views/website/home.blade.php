@@ -1,12 +1,12 @@
 @extends('website.layout.main')
-@section('title') {{__('website.Home')}} @endsection
+@section('title') {{t('home')}} @endsection
 @section('content')
     <div class="hero-wrap js-fullheight" style="background-image: url('{{url($Home->image)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
                 <div class="col-md-7 ftco-animate">
-                    <span class="subheading">{{__('website.Welcome')}}</span>
+                    <span class="subheading">{{t('welcome')}}</span>
 					<p class="caps">{{$Text}}</p>
                 </div>
                 <a href="{{url($Home->video_url)}}" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt">
+    {{-- <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -174,13 +174,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="ftco-section img ftco-select-destination">
         <div class="container">
             <div class="row justify-content-center pb-4">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">{{__('website.BannerTitle')}}</span>
+                    <span class="subheading">{{t('banner_title')}}</span>
                 </div>
             </div>
         </div>

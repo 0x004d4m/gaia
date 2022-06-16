@@ -33,10 +33,10 @@ class ContactController extends Controller
                 'message' => $request->message,
                 'language_id'=>Session::get('language_id'),
             ]);
-            Session::put("Message", 'Message Sent Successfully');
+            Session::put("Message", t('message_sent_successfully'));
             Session::put("Color", "success");
         }catch(Exception $e){
-            Session::put("Message", 'Something Went Wrong');
+            Session::put("Message", t('something_went_wrong'));
             Session::put("Color", "danger");
         }
         return redirect('/Contact');

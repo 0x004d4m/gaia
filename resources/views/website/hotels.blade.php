@@ -1,12 +1,12 @@
 @extends('website.layout.main')
-@section('title') {{__('website.Hotels')}} @endsection
+@section('title') {{t('hotels')}} @endsection
 @section('content')
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url($About)}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-0 bread">{{__('website.Hotels')}}</h1>
+                    <h1 class="mb-0 bread">{{t('hotels')}}</h1>
                 </div>
             </div>
         </div>
@@ -21,16 +21,16 @@
                             <div class="row no-gutters">
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
-                                        <label for="#">{{__('website.HotelName')}}</label>
+                                        <label for="#">{{t('hotel_name')}}</label>
                                         <div class="form-field">
                                             <div class="icon"><span class="fa fa-search"></span></div>
-                                            <input name="name" type="text" class="form-control" placeholder="{{__('website.SearchHotels')}}" value="{{Request::has('name')?Request::get('name'):''}}">
+                                            <input name="name" type="text" class="form-control" placeholder="{{t('search')}}" value="{{Request::has('name')?Request::get('name'):''}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 d-flex">
                                     <div class="form-group p-4 border-0">
-                                        <label for="#">{{__('website.Locations')}}</label>
+                                        <label for="#">{{t('locations')}}</label>
                                         <div class="form-field">
                                             <div class="select-wrap">
                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
@@ -47,7 +47,7 @@
                                 <div class="col-lg d-flex">
                                     <div class="form-group d-flex w-100 border-0">
                                         <div class="form-field w-100 align-items-center d-flex">
-                                            <input type="submit" value="{{__('website.Search')}}" class="align-self-stretch form-control btn btn-primary">
+                                            <input type="submit" value="{{t('search')}}" class="align-self-stretch form-control btn btn-primary">
                                         </div>
                                     </div>
                                 </div>
@@ -70,8 +70,8 @@
                             </a>
                             <div class="text p-4 text-center">
                                 <h3 class="mb-2"><a href="/Hotels/{{$Hotel->id}}">{{$Hotel->name}}</a></h3>
-                                <a class="btn btn-primary" href="/Hotels/{{$Hotel->id}}">{{__('website.BookNow')}}</a>
-                                <a class="btn btn-primary" href="{{$Hotel->url}}">{{__('website.HotelSite')}}</a>
+                                <a class="btn btn-primary" href="/Hotels/{{$Hotel->id}}">{{t('book_now')}}</a>
+                                <a class="btn btn-primary" href="{{$Hotel->url}}">{{t('hotel_site')}}</a>
                             </div>
                         </div>
                     </div>

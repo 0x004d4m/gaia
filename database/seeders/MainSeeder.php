@@ -23,11 +23,65 @@ class MainSeeder extends Seeder
         ]);
 
         DB::table('homes')->insert([
-            ["id"=>1,"image"=>"images/bg_5.jpg","video_url"=>"petra.mp4"],
+            ["id"=>1,"image"=>"images/bg_5.jpg","video_url"=>"/petra.mp4"],
         ]);
 
         DB::table('home_texts')->insert([
             ["id"=>1,"language_id"=>1,"home_id"=>1,"text"=>"-"],
+        ]);
+
+        DB::table('website_content')->insert([
+            [
+                "id"=>1,
+                "language_id"=>1,
+                'home' =>'Home',
+                'about_us' =>'About Us',
+                'gallery' =>'Gallery',
+                'programs' =>'Programs',
+                'hotels' =>'Hotels',
+                'transportation' =>'Transportation',
+                'contact_us' =>'Contact Us',
+                'welcome' =>'Welcome To Gaia Tours',
+                'banner_title' =>'Banner Title',
+                'contact_number_1' =>'Contact Number 1',
+                'contact_number_2' =>'Contact Number 2',
+                'p_o_box' =>'P.O.Box',
+                'email_address' =>'Email Address',
+                'subject' =>'Subject',
+                'message' =>'Message',
+                'first_name' =>'First Name',
+                'last_name' =>'Last Name',
+                'phone' =>'Phone',
+                'email' =>'Email',
+                'date_of_birth' =>'Date Of Birth',
+                'number_of_people' =>'Number Of People',
+                'passport_number' =>'Passport Number',
+                'passport_issue_date' =>'Passport Issue Date',
+                'passport_expiry_date' =>'Passport Expiry Date',
+                'nationality' =>'Nationality',
+                'hotel_room_id' =>'Select A Room',
+                'hotel_name' =>'Hotel Name',
+                'from' =>'From',
+                'to' =>'To',
+                'locations' =>'Locations',
+                'price' =>'Price',
+                'hotel_site' =>'Hotel Site',
+                'read_more' =>'Read More',
+                'book_now' =>'Book Now',
+                'send_message' =>'Send Message',
+                'submit' =>'Submit',
+                'search' =>'Search',
+                'payment_failed' =>'Payment Failed',
+                'payment_success' =>'Payment Success',
+                'start_payment' =>'Start Payment',
+                'message_sent_successfully' =>'Message Sent Successfully',
+                'something_went_wrong' =>'Something Went Wrong',
+                'payment_unsuccessful' =>'Payment unsuccessful, please try again later.',
+                'please_pay_to_continue' =>'Please Pay To Continue',
+                'payment_successful' =>'Thank You For Booking, Someone Will Contact You Later To Confirm',
+                'terms_and_conditions' =>'Terms And Conditions',
+                'wysiwyg-editor' =>'',
+            ],
         ]);
 
         DB::table('contact_infos')->insert([

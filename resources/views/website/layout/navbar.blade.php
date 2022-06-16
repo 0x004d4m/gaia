@@ -9,13 +9,13 @@
 
             <div class="collapse navbar-collapse ml-5 pt-3" id="ftco-nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item @if (Request::path() == 'Home') active @endif"><a href="{{url('/')}}" class="nav-link">{{__('website.Home')}}</a></li>
-                    <li class="nav-item @if (Request::path() == 'About') active @endif"><a href="{{url('/About')}}" class="nav-link">{{__('website.About')}}</a></li>
-                    <li class="nav-item @if (Request::path() == 'Gallery') active @endif"><a href="{{url('/Gallery')}}" class="nav-link">{{__('website.Gallery')}}</a></li>
-                    <li class="nav-item @if (Request::path() == 'Programs') active @endif"><a href="{{url('/Programs')}}" class="nav-link">{{__('website.Programs')}}</a></li>
-                    <li class="nav-item @if (Request::path() == 'Hotels') active @endif"><a href="{{url('/Hotels')}}" class="nav-link">{{__('website.Hotels')}}</a></li>
-                    <li class="nav-item @if (Request::path() == 'Transportation') active @endif"><a href="{{url('/Transportation')}}" class="nav-link">{{__('website.Transportation')}}</a></li>
-                    <li class="nav-item @if (Request::path() == 'Contact') active @endif"><a href="{{url('/Contact')}}" class="nav-link">{{__('website.Contact')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'Home') active @endif"><a href="{{url('/')}}" class="nav-link">{{t('home')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'About') active @endif"><a href="{{url('/About')}}" class="nav-link">{{t('about_us')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'Gallery') active @endif"><a href="{{url('/Gallery')}}" class="nav-link">{{t('gallery')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'Programs') active @endif"><a href="{{url('/Programs')}}" class="nav-link">{{t('programs')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'Hotels') active @endif"><a href="{{url('/Hotels')}}" class="nav-link">{{t('hotels')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'Transportation') active @endif"><a href="{{url('/Transportation')}}" class="nav-link">{{t('transportation')}}</a></li>
+                    <li class="nav-item @if (Request::path() == 'Contact') active @endif"><a href="{{url('/Contact')}}" class="nav-link">{{t('contact_us')}}</a></li>
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{Session::get('language_name')}}</a>
                         <div class="dropdown-menu">

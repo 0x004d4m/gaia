@@ -32,6 +32,8 @@ Route::group([
 
     Route::crud('Gallery', 'GalleryController');
 
+    Route::crud('WebsiteContent', 'WebsiteContentController');
+
     // Bookings Routes
     Route::crud('BookedTransportation', 'BookedTransportationController');
     Route::crud('BookedHotelRoom', 'BookedHotelRoomController');

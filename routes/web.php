@@ -8,7 +8,8 @@ use App\Http\Controllers\Website\{
     HotelsController,
     LanguageController,
     ProgramsController,
-    TransportationController
+    TermsAndConditionsController,
+    TransportationController,
 };
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::group([
     Route::get('/Home', [HomeController::class, 'index']);
     Route::get('/About', [AboutController::class, 'index']);
     Route::get('/Gallery', [GalleryController::class, 'index']);
+    Route::get('/TermsAndConditions', [TermsAndConditionsController::class, 'index']);
 
     Route::get('/Programs', [ProgramsController::class, 'index']);
     Route::get('/Programs/{program_id}', [ProgramsController::class, 'show']);

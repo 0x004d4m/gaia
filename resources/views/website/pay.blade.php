@@ -1,5 +1,5 @@
 @extends('website.layout.main')
-@section('title') {{t('start_ayment')}} @endsection
+@section('title') {{t('start_payment')}} @endsection
 @section('content')
     <section class="hero-wrap hero-wrap-2 js-fullheight">
         <div class="overlay" style="opacity: .9;"></div>

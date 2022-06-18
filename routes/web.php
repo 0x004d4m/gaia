@@ -12,6 +12,7 @@ use App\Http\Controllers\Website\{
     TransportationController,
 };
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/Home');
+});
+Route::get('/Logout', function () {
+    Session::flush();
+    return back();
 });
 
 Route::group([

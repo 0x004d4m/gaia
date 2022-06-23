@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NotifyAdmin;
 use App\Models\About;
 use App\Models\BookedTransportation;
 use App\Models\Location;
@@ -10,6 +11,7 @@ use App\Models\Transportation;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class TransportationController extends Controller
@@ -103,6 +105,7 @@ class TransportationController extends Controller
                     "status" => 1,
                     'hyperpay_check_payment' => $hyperpay_checkpayment
                 ]);
+                Mail::to(getenv('MAIL_TO_ADDRESS'))->send(new NotifyAdmin($booked_transportation_id, 'Transportation'));
                 return view('website.paymentSuccess');
             }else{
                 Log::debug('hyperpay_decoded');

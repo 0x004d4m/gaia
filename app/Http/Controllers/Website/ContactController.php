@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NotifyAdmin;
 use App\Models\About;
 use App\Models\ContactInfo;
 use App\Models\ContactMessage;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
@@ -24,7 +26,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         try{
-            ContactMessage::create([
+            $ContactMessage = ContactMessage::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
@@ -33,6 +35,7 @@ class ContactController extends Controller
                 'message' => $request->message,
                 'language_id'=>Session::get('language_id'),
             ]);
+            Mail::to(getenv('MAIL_TO_ADDRESS'))->send(new NotifyAdmin($ContactMessage->id, 'ContactMessage'));
             Session::put("Message", t('message_sent_successfully'));
             Session::put("Color", "success");
         }catch(Exception $e){

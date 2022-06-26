@@ -25,9 +25,20 @@ class Gallery extends Model
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $disk = "public";
-        $destination_path = "uploads";
+        $destination_path = "public/uploads/gallery";
 
-        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+        if ($value==null) {
+            Storage::delete($this->{$attribute_name});
+            $this->attributes[$attribute_name] = null;
+        }
+
+        if (Str::startsWith($value, 'data:image'))
+        {
+            $image = Image::make($value)->encode('png', 90);
+            $filename = md5($value.time()).'.png';
+            Storage::put($destination_path.'/'.$filename, $image->stream());
+            $public_destination_path = Str::replaceFirst('public/', 'storage/', $destination_path);
+            $this->attributes[$attribute_name] = $public_destination_path.'/'.$filename;
+        }
     }
 }

@@ -19,14 +19,14 @@ class Gallery extends Model
     ];
 
     public function getImageAttribute($value){
-        return asset($value);
+        return url($value);
         // return url('public/'.$value);
     }
 
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $destination_path = "uploads/screenshot";
+        $destination_path = "public/uploads/screenshot";
 
         if ($value==null) {
             Storage::delete($this->{$attribute_name});

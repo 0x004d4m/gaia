@@ -19,7 +19,7 @@ class Gallery extends Model
     ];
 
     public function getImageAttribute($value){
-        return url($value);
+        return url('storage2/'.$value);
         // return url('public/'.$value);
     }
 

@@ -32,7 +32,7 @@ class HomeBanner extends Model
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $destination_path = "public/uploads/banner";
+        $destination_path = "public/uploads";
 
         if ($value==null) {
             Storage::delete($this->{$attribute_name});

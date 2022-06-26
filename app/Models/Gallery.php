@@ -26,7 +26,7 @@ class Gallery extends Model
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $destination_path = "public/uploads/screenshot";
+        $destination_path = "public/uploads";
 
         if ($value==null) {
             Storage::delete($this->{$attribute_name});

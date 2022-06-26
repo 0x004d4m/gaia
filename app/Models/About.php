@@ -31,7 +31,7 @@ class About extends Model
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $destination_path = "public/uploads/about";
+        $destination_path = "public/uploads";
 
         if ($value==null) {
             Storage::delete($this->{$attribute_name});
@@ -56,7 +56,7 @@ class About extends Model
     public function setImage2Attribute($value)
     {
         $attribute_name = "image2";
-        $destination_path = "public/uploads/about";
+        $destination_path = "public/uploads";
 
         if ($value==null) {
             Storage::delete($this->{$attribute_name});

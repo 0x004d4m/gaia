@@ -19,13 +19,14 @@ class Gallery extends Model
     ];
 
     public function getImageAttribute($value){
-        return url($value);
+        // return url($value);
+        return url('public/'.$value);
     }
 
     public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $destination_path = "uploads/gallery";
+        $destination_path = "public/uploads/gallery";
 
         if ($value==null) {
             Storage::delete($this->{$attribute_name});
@@ -37,7 +38,7 @@ class Gallery extends Model
             $image = Image::make($value)->encode('png', 90);
             $filename = md5($value.time()).'.png';
             Storage::put($destination_path.'/'.$filename, $image->stream());
-            $public_destination_path = Str::replaceFirst('public/', '', $destination_path);
+            $public_destination_path = Str::replaceFirst('public/', 'storage/', $destination_path);
             $this->attributes[$attribute_name] = $public_destination_path.'/'.$filename;
         }
     }

@@ -56,7 +56,7 @@ class Home extends Model
             $image = Image::make($value)->encode('png', 90);
             $filename = md5($value.time()).'.png';
             Storage::put($destination_path.'/'.$filename, $image->stream());
-            $public_destination_path = Str::replaceFirst('public/', 'storage/', $destination_path);
+            $public_destination_path = Str::replaceFirst('public/', 'storage2/', $destination_path);
             $this->attributes[$attribute_name] = $public_destination_path.'/'.$filename;
         }
     }

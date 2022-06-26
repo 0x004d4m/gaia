@@ -19,7 +19,7 @@ class Gallery extends Model
     ];
 
     public function getImageAttribute($value){
-        return asset('uploads/gallery/'.$value);
+        return asset('/'.$value);
     }
 
     public function setImageAttribute($value)

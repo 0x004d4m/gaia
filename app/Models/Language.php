@@ -15,4 +15,9 @@ class Language extends Model
         'language',
         'direction'
     ];
+
+    public function websiteContent()
+    {
+        return $this->hasOne(WebsiteContent::class);
+    }
 }

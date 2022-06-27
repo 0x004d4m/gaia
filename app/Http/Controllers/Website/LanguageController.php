@@ -11,10 +11,17 @@ class LanguageController extends Controller
 {
     public function language(Request $request, $language_id)
     {
-        $Language = Language::where('id',$language_id)->first();
-        Session::put('language_id', $Language->id);
-        Session::put('language_name', $Language->language);
-        Session::put('language_dir', $Language->diriction);
+        $Language = Language::where('id',$language_id)->whereHas('websiteContent')->first();
+        if($Language){
+            Session::put('language_id', $Language->id);
+            Session::put('language_name', $Language->language);
+            Session::put('language_dir', $Language->diriction);
+        }else{
+            $Language = Language::whereHas('websiteContent')->first();
+            Session::put('language_id', $Language->id);
+            Session::put('language_name', $Language->language);
+            Session::put('language_dir', $Language->diriction);
+        }
 
         return back();
     }

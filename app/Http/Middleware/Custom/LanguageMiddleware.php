@@ -21,12 +21,12 @@ class LanguageMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Session::get('language_id') == null){
-            $Language = Language::first();
+            $Language = Language::whereHas('websiteContent')->first();
             Session::put('language_id', $Language->id);
             Session::put('language_name', $Language->language);
             Session::put('language_dir', $Language->direction);
         }
-        Session::put('languages',Language::get());
+        Session::put('languages',Language::whereHas('websiteContent')->get());
         $ContactInfo = ContactInfo::first();
         Session::put('facebook', $ContactInfo->facebook);
         Session::put('snapchat', $ContactInfo->snapchat);

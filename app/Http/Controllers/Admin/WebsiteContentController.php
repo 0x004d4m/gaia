@@ -85,6 +85,9 @@ class WebsiteContentController extends CrudController
             'payment_successful',
             'terms_and_conditions',
             'wysiwyg-editor',
+            'things_to_know',
+            'history_and_info',
+            'culter_and_people'
         ]);
     }
 
@@ -148,7 +151,7 @@ class WebsiteContentController extends CrudController
         $this->crud->addField(['name' => 'payment_successful', 'type' => 'text']);
         $this->crud->addField(['name' => 'terms_and_conditions', 'type' => 'text']);
 
-        $this->crud->addField(['name' => 'wysiwyg-editor', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'wysiwyg-editor', "label"=>'terms_and_conditions', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'things_to_know', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'history_and_info', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'culter_and_people', 'type' => 'CKEditor']);
@@ -215,7 +218,10 @@ class WebsiteContentController extends CrudController
         $this->crud->addField(['name' => 'payment_successful', 'type' => 'text']);
         $this->crud->addField(['name' => 'terms_and_conditions', 'type' => 'text']);
 
-        $this->crud->addField(['name' => 'wysiwyg-editor', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'wysiwyg-editor', "label"=>'terms_and_conditions', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'things_to_know', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'history_and_info', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'culter_and_people', 'type' => 'CKEditor']);
     }
 
     protected function setupShowOperation()
@@ -231,6 +237,6 @@ class WebsiteContentController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->removeColumns(['wysiwyg-editor']);
+        $this->crud->removeColumns(['wysiwyg-editor','things_to_know','history_and_info','culter_and_people']);
     }
 }

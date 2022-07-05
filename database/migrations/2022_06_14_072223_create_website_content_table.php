@@ -65,7 +65,6 @@ return new class extends Migration
             $table->text('please_pay_to_continue');
             $table->text('payment_successful');
             $table->text('terms_and_conditions');
-
             $table->text('wysiwyg-editor');
 
             $table->timestamps();

@@ -61,7 +61,7 @@ class WebsiteContent extends Model
         'please_pay_to_continue',
         'payment_successful',
         'terms_and_conditions',
-        'wysiwyg-editor',
+        'wysiwyg-editor','things_to_know','history_and_info','culter_and_people'
     ];
 
     public function language()

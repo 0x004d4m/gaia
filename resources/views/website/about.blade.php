@@ -16,9 +16,9 @@
         <div class="container">
             <div class="row d-flex">
                 <div class="col-md-12 about-intro">
-                    <div class="row">
-                        <div class="col-md-12 d-flex align-items-stretch">
-                            <div class="img d-flex w-100 align-items-center justify-content-center" style="background-image:url({{url($About2)}});"></div>
+                    <div class="row text-center justify-content-center">
+                        <div class="col-md-6 d-flex align-items-stretch">
+                            <div class="img d-flex w-100 align-items-center justify-content-center" style="background-image:url({{url($About2)}}); height:100%"></div>
                         </div>
                         <div class="col-md-12 pl-md-5 py-5">
                             <div class="row justify-content-start pb-3">

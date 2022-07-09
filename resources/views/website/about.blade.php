@@ -28,6 +28,27 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12 pl-md-5 py-5">
+                            <div class="row justify-content-start pb-3">
+                                <div class="col-md-12 heading-section ftco-animate">
+                                    <p>{{t('things_to_know')}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pl-md-5 py-5">
+                            <div class="row justify-content-start pb-3">
+                                <div class="col-md-12 heading-section ftco-animate">
+                                    <p>{{t('history_and_info')}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pl-md-5 py-5">
+                            <div class="row justify-content-start pb-3">
+                                <div class="col-md-12 heading-section ftco-animate">
+                                    <p>{{t('culter_and_people')}}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

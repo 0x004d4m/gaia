@@ -14,7 +14,7 @@
     <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
             <div class="row align-items-center mt-5">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div id="carouselExampleIndicators" class="carousel" data-ride="carousel">
                         <ol class="carousel-indicators">
                             @php $i = 0; @endphp
@@ -39,9 +39,9 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12 text-center">
                     <h3>{{$Program->name}}</h3>
-                    <p>{{$Program->text}}</p>
+                    <p>{!!$Program->text!!}</p>
                 </div>
             </div>
             <div class="row justify-content-center my-5" id="from">

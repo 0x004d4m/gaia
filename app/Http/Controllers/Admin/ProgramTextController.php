@@ -66,7 +66,7 @@ class ProgramTextController extends CrudController
         ]);
 
         $this->crud->addField(['name' => 'name', 'type' => 'text']);
-        $this->crud->addField(['name' => 'text', 'type' => 'textarea']);
+        $this->crud->addField(['name' => 'text', 'type' => 'CKEditor']);
 
         $this->crud->addField([
             'label' => "Program",
@@ -93,7 +93,7 @@ class ProgramTextController extends CrudController
         ]);
 
         $this->crud->addField(['name' => 'name', 'type' => 'text']);
-        $this->crud->addField(['name' => 'text', 'type' => 'textarea']);
+        $this->crud->addField(['name' => 'text', 'type' => 'CKEditor']);
     }
 
     protected function setupShowOperation()

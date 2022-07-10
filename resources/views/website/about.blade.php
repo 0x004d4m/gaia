@@ -24,7 +24,7 @@
                             <div class="row justify-content-start pb-3">
                                 <div class="col-md-12 heading-section ftco-animate">
                                     <span class="subheading">{{t('about_us')}}</span>
-                                    <p>{{$Text}}</p>
+                                    <p>{!!$Text!!}</p>
                                 </div>
                             </div>
                         </div>

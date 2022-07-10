@@ -59,7 +59,7 @@ class AboutTextController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->addField(['name' => 'text', 'type' => 'text']);
+        $this->crud->addField(['name' => 'text', 'type' => 'CKEditor']);
     }
 
     protected function setupUpdateOperation()
@@ -75,7 +75,7 @@ class AboutTextController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->addField(['name' => 'text', 'type' => 'text']);
+        $this->crud->addField(['name' => 'text', 'type' => 'CKEditor']);
     }
 
     protected function setupShowOperation()

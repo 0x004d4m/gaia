@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('website_contents', function (Blueprint $table) {
+        Schema::table('website_content', function (Blueprint $table) {
             $table->text('privacy_policy_title');
             $table->text('privacy_policy');
         });

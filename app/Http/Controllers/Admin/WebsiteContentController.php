@@ -87,7 +87,9 @@ class WebsiteContentController extends CrudController
             'wysiwyg-editor',
             'things_to_know',
             'history_and_info',
-            'culter_and_people'
+            'culter_and_people',
+            'privacy_policy_title',
+            'privacy_policy'
         ]);
     }
 
@@ -155,6 +157,8 @@ class WebsiteContentController extends CrudController
         $this->crud->addField(['name' => 'things_to_know', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'history_and_info', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'culter_and_people', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'privacy_policy_title', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'privacy_policy', 'type' => 'CKEditor']);
 
     }
 
@@ -222,6 +226,8 @@ class WebsiteContentController extends CrudController
         $this->crud->addField(['name' => 'things_to_know', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'history_and_info', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'culter_and_people', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'privacy_policy_title', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'privacy_policy', 'type' => 'CKEditor']);
     }
 
     protected function setupShowOperation()
@@ -237,6 +243,6 @@ class WebsiteContentController extends CrudController
             'model' => 'App\Models\Language'
         ]);
 
-        $this->crud->removeColumns(['Terms And Conditions','things_to_know','history_and_info','culter_and_people']);
+        $this->crud->removeColumns(['wysiwyg-editor','things_to_know','history_and_info','culter_and_people','privacy_policy']);
     }
 }

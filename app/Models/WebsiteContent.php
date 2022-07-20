@@ -64,7 +64,9 @@ class WebsiteContent extends Model
         'wysiwyg-editor',
         'things_to_know',
         'history_and_info',
-        'culter_and_people'
+        'culter_and_people',
+        'privacy_policy_title',
+        'privacy_policy',
     ];
 
     public function language()

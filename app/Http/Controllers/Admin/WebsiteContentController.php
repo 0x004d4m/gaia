@@ -157,7 +157,7 @@ class WebsiteContentController extends CrudController
         $this->crud->addField(['name' => 'things_to_know', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'history_and_info', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'culter_and_people', 'type' => 'CKEditor']);
-        $this->crud->addField(['name' => 'privacy_policy_title', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'privacy_policy_title', 'type' => 'text']);
         $this->crud->addField(['name' => 'privacy_policy', 'type' => 'CKEditor']);
 
     }
@@ -226,7 +226,7 @@ class WebsiteContentController extends CrudController
         $this->crud->addField(['name' => 'things_to_know', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'history_and_info', 'type' => 'CKEditor']);
         $this->crud->addField(['name' => 'culter_and_people', 'type' => 'CKEditor']);
-        $this->crud->addField(['name' => 'privacy_policy_title', 'type' => 'CKEditor']);
+        $this->crud->addField(['name' => 'privacy_policy_title', 'type' => 'text']);
         $this->crud->addField(['name' => 'privacy_policy', 'type' => 'CKEditor']);
     }
 

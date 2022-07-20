@@ -7,6 +7,7 @@ use App\Http\Controllers\Website\{
     HomeController,
     HotelsController,
     LanguageController,
+    PrivacyPolicyController,
     ProgramsController,
     TermsAndConditionsController,
     TransportationController,
@@ -41,6 +42,7 @@ Route::group([
     Route::get('/About', [AboutController::class, 'index']);
     Route::get('/Gallery', [GalleryController::class, 'index']);
     Route::get('/TermsAndConditions', [TermsAndConditionsController::class, 'index']);
+    Route::get('/PrivacyPolicy', [PrivacyPolicyController::class, 'index']);
 
     Route::get('/Programs', [ProgramsController::class, 'index']);
     Route::get('/Programs/{program_id}', [ProgramsController::class, 'show']);

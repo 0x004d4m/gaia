@@ -2,7 +2,7 @@
 
 function createPayment($amount) {
 	$url = "https://test.oppwa.com/v1/checkouts";
-	$data = "entityId=8a8294174d0595bb014d05d82e5b01d2" .
+	$data = "entityId=8ac7a4c88338e3b501833abcebb222b2" .
                 "&amount=". $amount .
                 "&currency=USD" .
                 "&paymentType=DB";
@@ -10,7 +10,7 @@ function createPayment($amount) {
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                   'Authorization:Bearer OGE4Mjk0MTc0ZDA1OTViYjAxNGQwNWQ4MjllNzAxZDF8OVRuSlBjMm45aA=='));
+                   'Authorization:Bearer OGFjN2E0Yzg4MzM4ZTNiNTAxODMzYWJjNTY2MjIyYWV8TlI5ekRFZ2VXRQ=='));
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -37,12 +37,12 @@ function createPayment($amount) {
 
 function checkPayment($payment_id) {
 	$url = "https://test.oppwa.com/v1/checkouts/$payment_id/payment";
-	$url .= "?entityId=8a8294174d0595bb014d05d82e5b01d2";
+	$url .= "?entityId=8ac7a4c88338e3b501833abcebb222b2";
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                   'Authorization:Bearer OGE4Mjk0MTc0ZDA1OTViYjAxNGQwNWQ4MjllNzAxZDF8OVRuSlBjMm45aA=='));
+                   'Authorization:Bearer OGFjN2E0Yzg4MzM4ZTNiNTAxODMzYWJjNTY2MjIyYWV8TlI5ekRFZ2VXRQ=='));
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);// this should be set to true in production
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
